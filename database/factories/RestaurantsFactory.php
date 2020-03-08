@@ -2,11 +2,18 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\Restaurants;
+use App\Models\Restaurant;
 use Faker\Generator as Faker;
 
-$factory->define(Restaurants::class, function (Faker $faker) {
+$factory->define(Restaurant::class, function (Faker $faker) {
     return [
-        //
+        'name'      => $faker->name,
+        'slug'      => $faker->slug,
+        'website'   => $faker->url,
+        'phone'     => $faker->numerify($string = '##########'),
+        'email'     => $faker->safeEmail,
+        'address'   => $faker->streetAddress,
+        'latitude'  => $faker->latitude,
+        'longitude' => $faker->longitude
     ];
 });

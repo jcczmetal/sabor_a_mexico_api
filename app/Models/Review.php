@@ -4,7 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Reviews extends Model
+class Review extends Model
 {
     protected $table = 'reviews';
+
+    public function user()
+    {
+        $this->belongsTo('App\User');
+    }
 }
