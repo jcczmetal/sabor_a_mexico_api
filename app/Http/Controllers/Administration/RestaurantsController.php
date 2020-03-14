@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Administration;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,7 +14,10 @@ class RestaurantsController extends Controller
      */
     public function index()
     {
-        
+        $restaurants = Restaurant::where('active', true)
+                                 ->get();
+
+        return view('admin.restaurants.index', compact('restaurants'));
     }
 
     /**
