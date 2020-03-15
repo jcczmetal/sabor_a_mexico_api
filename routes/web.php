@@ -18,6 +18,24 @@
         //Asignamos 
     });
 
+    Route::middleware(['auth','role:keymaker|admin|associate'])->namespace('Restaurants')->group(function(){
+        /*
+            Keymakers: pueden crear usuarios, 
+                       asignarles roles de asociado, administrador, etc, desactivarlos, 
+                       crear restaurantes, desactivarlos 
+        */
+    
+        Route::get('restaurants/index',                      'RestaurantsManagementController@index')->name('index-restaurants');
+        Route::get('restaurants/create',                     'RestaurantsManagementController@create')->name('index-restaurants');
+        Route::post('restaurants/store',                     'RestaurantsManagementController@store')->name('index-restaurants');
+        Route::get('restaurants/{slug}/show',                'RestaurantsManagementController@show')->name('index-restaurants');
+        Route::get('restaurants/{slug}/edit',                'RestaurantsManagementController@edit')->name('index-restaurants');
+        Route::put('restaurants/{slug}/update',              'RestaurantsManagementController@update')->name('index-restaurants');
+    
+        //Asignar roles
+        //Asignamos 
+    });
+
     Route::middleware(['auth','role:admin','permission:active'])->namespace('Administration')->group(function(){
         //Administrar asociados -> Aquí también deberíamos poder crear users en un solo formulario
         Route::get('associate/index',                  'AssociatesManagementController@index');
