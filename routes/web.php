@@ -7,12 +7,12 @@
                        crear restaurantes, desactivarlos 
         */
     
-        Route::get('administrators/index',                      'AdministratorsManagementController@index');
-        Route::get('administrators/create',                     'AdministratorsManagementController@create');
-        Route::post('administrators/store',                     'AdministratorsManagementController@store');
-        Route::get('administrators/{slug}/show',                'AdministratorsManagementController@show');
-        Route::get('administrators/{slug}/edit',                'AdministratorsManagementController@edit');
-        Route::put('administrators/{slug}/update',              'AdministratorsManagementController@update');
+        Route::get('administrators/index',                      'AdministratorsManagementController@index')->name('index-administrators');
+        Route::get('administrators/create',                     'AdministratorsManagementController@create')->name('index-administrators');
+        Route::post('administrators/store',                     'AdministratorsManagementController@store')->name('index-administrators');
+        Route::get('administrators/{slug}/show',                'AdministratorsManagementController@show')->name('index-administrators');
+        Route::get('administrators/{slug}/edit',                'AdministratorsManagementController@edit')->name('index-administrators');
+        Route::put('administrators/{slug}/update',              'AdministratorsManagementController@update')->name('index-administrators');
     
         //Asignar roles
         //Asignamos 
@@ -56,3 +56,7 @@
     
 
     
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
