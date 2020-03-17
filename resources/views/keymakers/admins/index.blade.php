@@ -7,27 +7,13 @@
             <div class="col-md-6">
                 <div class="card text-center">
                     <div class="card-header">
-                        Restaurantes registrados
+                        Administradores registrados
                     </div>
                     
                     <div class="card-body">
-                        <h3 class="card-title">5</h3>
-                        <p class="card-text">Has click en el botón para registrar un restaurante</p>
-                        <a href="#" class="btn btn-primary">Registrar restaurante</a>
-                    </div>                    
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="card text-center">
-                    <div class="card-header">
-                        Asociados registrados
-                    </div>
-                    
-                    <div class="card-body">
-                        <h3 class="card-title">3</h3>
-                        <p class="card-text">Has click en el botón para registrar un asociado</p>
-                        <a href="#" class="btn btn-primary">Registrar asociados</a>
+                        <h3 class="card-title">{{ $admins->count() }}</h3>
+                        <p class="card-text">Has click en el botón para registrar un administrador</p>
+                        <a href="#" class="btn btn-primary">Registrar administrador</a>
                     </div>                    
                 </div>
             </div>
@@ -50,12 +36,11 @@
                                 <td>{{ $admin->email }}</td>
                                 <td>
                                     <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
                                             Acciones
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" href="#">Editar</a>
-                                            <a class="dropdown-item" href="#">Asignaciones</a
                                         </div>
                                     </div>
                                 </td>
