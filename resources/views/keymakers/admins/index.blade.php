@@ -56,4 +56,32 @@
 
 @include('keymakers.modals.create-admin')
 
+<script>
+
+    $('#createAdmin').submit( function(e){
+        e.preventDefault();
+
+        $.ajax({
+            type:"POST",
+            url:"/administrators/store",
+            data: $('#createAdmin').serialize(),
+            async: true,
+            dataType: 'json',
+
+            success: function(data){
+                alert("good");
+                setTimeout(function(){
+                    window.location.replace('/administrators/index');
+                },3000);
+            },
+
+            error: function(data){
+                var error = data.responseJSON;
+                console.log(error);
+            }
+        });
+    });
+
+</script>
+
 @endsection
