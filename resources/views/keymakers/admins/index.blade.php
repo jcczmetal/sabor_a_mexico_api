@@ -13,7 +13,9 @@
                     <div class="card-body">
                         <h3 class="card-title">{{ $admins->count() }}</h3>
                         <p class="card-text">Has click en el botón para registrar un administrador</p>
-                        <a href="#" class="btn btn-primary">Registrar administrador</a>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Registrar administrador
+                        </button>
                     </div>                    
                 </div>
             </div>
@@ -51,5 +53,7 @@
             </div>
         </div>
     </div>
+
+@include('keymakers.modals.create-admin')
 
 @endsection
