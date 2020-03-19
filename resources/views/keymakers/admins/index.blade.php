@@ -76,8 +76,17 @@
             },
 
             error: function(data){
-                var error = data.responseJSON;
-                console.log(error);
+                var data = data.responseJSON;
+
+                if(data.errors.first_name){
+                    var errorFirstName = data.errors.first_name;
+
+                    $( "#first_name" )addClass("is-invalid");
+                }
+
+                
+
+                console.log(error.errors.email);
             }
         });
     });

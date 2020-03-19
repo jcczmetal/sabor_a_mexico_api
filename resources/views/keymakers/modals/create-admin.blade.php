@@ -16,34 +16,34 @@
                 
                     <div class="form-group">
                         <label>Nombre</label>
-                        <input type="text" name="first_name" class="form-control">
+                        <input type="text" name="first_name" id="first_name" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label>Apellido (solo el primero)</label>
-                        <input type="text" name="last_name" class="form-control">
+                        <input type="text" name="last_name" id="last_name" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label>Correo electrónico</label>
-                        <input type="email" name="email" class="form-control">
+                        <input type="email" name="email" id="email" class="form-control">
                     </div>
                     
                     <div class="form-group">
                         <label>Perfil</label>
-                        <select class="form-control" name="profile">
+                        <select class="form-control" name="profile" id="profile">
                             <option value="admin">Administrador interno</option>
                             <option value="associate">Asociado restaurantero</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Contraseña provisional</label>
-                        <input type="password" class="form-control" name="password">
+                        <label>Contraseña provisional</label>
+                        <input type="password" class="form-control" name="password" id="password">
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="active">
+                        <input class="form-check-input" type="checkbox" name="active" id="active">
                         <label class="form-check-label" for="defaultCheck1">
                             Activar perfil
                         </label>
