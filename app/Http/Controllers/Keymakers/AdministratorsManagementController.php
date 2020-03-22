@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Keymakers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class AdministratorsManagementController extends Controller
 {
@@ -42,15 +44,20 @@ class AdministratorsManagementController extends Controller
             'first_name' => 'required|max:20',
             'last_name'  => 'required|max:20',
             'email'      => 'required|unique:users|max:100',
+            'profile'    => ['required', Rule::in(['admin', 'associate'])],
+            'password'   => 'required|min:10'
         ]);
 
         $newAdmin = User::create([
             'first_name' => $request->first_name,
             'last_name'  => $request->last_name,
             'email'      => $request->email,
+            'password'   => Hash::make($request->password)
         ]);
 
-        return redirect()-route('');
+        $newAdmin->assignRole('admin');
+
+        return redirect()-route('index-administrators');
     }
 
     /**

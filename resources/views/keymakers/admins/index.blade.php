@@ -58,6 +58,25 @@
 
 <script>
 
+    //Handle the keydown
+    $( "#first_name" ).keydown(function() {
+        $('#first_name').removeClass("is-invalid");
+    });
+
+    $( "#last_name" ).keydown(function() {
+        $('#last_name').removeClass("is-invalid");
+    });
+
+    $( "#email" ).keydown(function() {
+        $('#email').removeClass("is-invalid");
+    });
+
+    $( "#password" ).keydown(function() {
+        $('#password').removeClass("is-invalid");
+    });
+
+    
+
     $('#createAdmin').submit( function(e){
         e.preventDefault();
 
@@ -79,14 +98,20 @@
                 var data = data.responseJSON;
 
                 if(data.errors.first_name){
-                    var errorFirstName = data.errors.first_name;
-
-                    $( "#first_name" )addClass("is-invalid");
+                    $('#first_name').addClass("is-invalid");
+                }
+                
+                if(data.errors.last_name){
+                    $('#last_name').addClass("is-invalid");
                 }
 
-                
+                if(data.errors.email){
+                    $('#email').addClass("is-invalid");
+                }
 
-                console.log(error.errors.email);
+                if(data.errors.password){
+                    $('#password').addClass("is-invalid");
+                }
             }
         });
     });
