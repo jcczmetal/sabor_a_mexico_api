@@ -41,7 +41,7 @@ class LoginController extends Controller
     protected function authenticated($request, $user){
 
         if($user->hasRole('keymaker')){
-            return redirect('keymasters-dashboard');
+            return redirect('keymakers/dashboard');
         }
 
         if($user->hasRole('admin')){

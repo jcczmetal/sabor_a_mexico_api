@@ -11,10 +11,12 @@ Route::middleware(['auth','role:keymaker'])->namespace('Keymakers')->group(funct
                    crear restaurantes, desactivarlos 
     */
 
-    //Necesito un dashboard donde mostrar datos generales
-    Route::get('keymaker/dashboard',                        'KeymakersDashboardController@index')->name('keymasters-dashboard');
+    //Dashboard con números de todos los modelos a los que sólo pueden acceder los keymakers.
+    Route::get('keymakers/dashboard',                       'KeymakersDashboardController@index')->name('keymasters-dashboard');
     
+    //Supongo que temporalmente no necesitamos esto.
     Route::get('administrators/index',                      'AdministratorsManagementController@index')->name('index-administrators');
+    
     Route::get('administrators/create',                     'AdministratorsManagementController@create')->name('index-administrators');
     Route::post('administrators/store',                     'AdministratorsManagementController@store')->name('index-administrators');
     Route::get('administrators/{slug}/show',                'AdministratorsManagementController@show')->name('index-administrators');
