@@ -11,17 +11,26 @@ Route::middleware(['auth','role:keymaker'])->namespace('Keymakers')->group(funct
                    crear restaurantes, desactivarlos 
     */
 
-    //Dashboard con números de todos los modelos a los que sólo pueden acceder los keymakers.
+    //Dashboard con números de todos los modelos a los que sólo pueden acceder los keymakers. //Done
     Route::get('keymakers/dashboard',                       'KeymakersDashboardController@index')->name('keymasters-dashboard');
     
     //Supongo que temporalmente no necesitamos esto.
     Route::get('administrators/index',                      'AdministratorsManagementController@index')->name('index-administrators');
     
-    Route::get('administrators/create',                     'AdministratorsManagementController@create')->name('index-administrators');
-    Route::post('administrators/store',                     'AdministratorsManagementController@store')->name('index-administrators');
-    Route::get('administrators/{slug}/show',                'AdministratorsManagementController@show')->name('index-administrators');
-    Route::get('administrators/{slug}/edit',                'AdministratorsManagementController@edit')->name('index-administrators');
-    Route::put('administrators/{slug}/update',              'AdministratorsManagementController@update')->name('index-administrators');
+    //Esta de plano no la utilizamos por el momento
+    Route::get('administrators/create',                     'AdministratorsManagementController@create')->name('create-administrators');
+    
+    //Esta sí
+    Route::post('administrators/store',                     'AdministratorsManagementController@store')->name('store-administrators');
+    
+    //Debe tener su propia página
+    Route::get('administrators/{slug}/show',                'AdministratorsManagementController@show')->name('show-administrators');
+    
+    //Esta tampoco, es el mismo modal del create pero con los datos.
+    Route::get('administrators/{slug}/edit',                'AdministratorsManagementController@edit')->name('edit-administrators');
+    
+    //a esta apunta el ajax
+    Route::put('administrators/{slug}/update',              'AdministratorsManagementController@update')->name('update-administrators');
     
     //Asignar roles
     //Asignamos 
@@ -45,9 +54,9 @@ Route::middleware(['auth','role:keymaker|admin|associate'])->namespace('Restaura
     //Asignamos 
 });
 
-Route::middleware(['auth','role:admin','permission:active'])->namespace('Administration')->group(function(){
+Route::middleware(['auth','role:admin|keymaker'])->namespace('Administration')->group(function(){
     //Aministrar asociados -> Aquí también deberíamos poder crear users en un solo formulario
-    Route::get('associate/index',                  'AssociatesManagementController@index');
+    Route::get('associate/index',                  'AssociatesManagementController@index')->name('index-associate');
     Route::post('associate/store',                 'AssociatesManagementController@store');
     Route::get('associate/{slug}/assign',          'AssociatesManagementController@show');
     Route::get('associate/{slug}/edit',            'AssociatesManagementController@edit');
