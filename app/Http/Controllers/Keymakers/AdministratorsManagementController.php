@@ -55,9 +55,12 @@ class AdministratorsManagementController extends Controller
             'password'   => Hash::make($request->password)
         ]);
 
-        $newAdmin->assignRole('admin');
+        $newAdmin->assignRole($request->profile);
 
-        return redirect()-route('index-administrators');
+        return response()->json(
+            ['success'],
+            200
+        );
     }
 
     /**

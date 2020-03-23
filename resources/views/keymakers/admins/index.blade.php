@@ -4,15 +4,44 @@
 
     <div class="container">
         <div class="row mb-3">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card text-center">
                     <div class="card-header">
                         Administradores registrados
                     </div>
                     
                     <div class="card-body">
-                        <h3 class="card-title">{{ $admins->count() }}</h3>
-                        <p class="card-text">Has click en el botón para registrar un administrador</p>
+                        <h2 class="card-title">{{ $admins->count() }}</h2>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createAdminModal">
+                            Registrar administrador
+                        </button>
+                    </div>                    
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Administradores inactivos
+                    </div>
+                    
+                    <div class="card-body">
+                        <h2 class="card-title">1</h2>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Registrar administrador
+                        </button>
+                    </div>                    
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Something
+                    </div>
+                    
+                    <div class="card-body">
+                        <h2 class="card-title">7</h2>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Registrar administrador
                         </button>
@@ -34,7 +63,7 @@
                     <tbody>
                         @foreach($admins as $admin)
                             <tr>
-                                <td>{{ $admin->name }}</td>
+                                <td>{{ $admin->FullName }}</td>
                                 <td>{{ $admin->email }}</td>
                                 <td>
                                     <div class="dropdown">
@@ -75,8 +104,6 @@
         $('#password').removeClass("is-invalid");
     });
 
-    
-
     $('#createAdmin').submit( function(e){
         e.preventDefault();
 
@@ -96,6 +123,8 @@
 
             error: function(data){
                 var data = data.responseJSON;
+
+                console.log(data);
 
                 if(data.errors.first_name){
                     $('#first_name').addClass("is-invalid");

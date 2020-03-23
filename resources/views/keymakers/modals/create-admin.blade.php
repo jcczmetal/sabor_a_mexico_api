@@ -1,4 +1,4 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="createAdminModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <form id="createAdmin">
             @csrf
