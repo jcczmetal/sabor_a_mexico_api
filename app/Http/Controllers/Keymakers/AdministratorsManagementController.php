@@ -41,21 +41,23 @@ class AdministratorsManagementController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'first_name' => 'required|max:20',
-            'last_name'  => 'required|max:20',
-            'email'      => 'required|unique:users|max:100',
-            'profile'    => ['required', Rule::in(['admin', 'associate'])],
-            'password'   => 'required|min:10'
+            'firstNameNewAdmin'  => 'required|max:20',
+            'lastNameNewAdmin'   => 'required|max:20',
+            'emailNewAdmin'      => ['required','unique:users,email','max:100'],
+            'profileNewAdmin'    => ['required', Rule::in(['admin', 'associate'])],
+            'passwordNewAdmin'   => 'required|min:10'
         ]);
 
         $newAdmin = User::create([
-            'first_name' => $request->first_name,
-            'last_name'  => $request->last_name,
-            'email'      => $request->email,
-            'password'   => Hash::make($request->password)
+            'first_name' => $request->firstNameNewAdmin,
+            'last_name'  => $request->lastNameNewAdmin,
+            'email'      => $request->emailNewAdmin,
+            'password'   => Hash::make($request->passwordNewAdmin)
         ]);
 
-        $newAdmin->assignRole($request->profile);
+
+
+        $newAdmin->assignRole($request->profileNewAdmin);
 
         return response()->json(
             ['success'],

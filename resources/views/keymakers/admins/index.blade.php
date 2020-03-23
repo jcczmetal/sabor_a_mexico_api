@@ -71,7 +71,7 @@
                                             Acciones
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Editar</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#editAdminModal" >Editar</a>
                                         </div>
                                     </div>
                                 </td>
@@ -84,67 +84,6 @@
     </div>
 
 @include('keymakers.modals.create-admin')
-
-<script>
-
-    //Handle the keydown
-    $( "#first_name" ).keydown(function() {
-        $('#first_name').removeClass("is-invalid");
-    });
-
-    $( "#last_name" ).keydown(function() {
-        $('#last_name').removeClass("is-invalid");
-    });
-
-    $( "#email" ).keydown(function() {
-        $('#email').removeClass("is-invalid");
-    });
-
-    $( "#password" ).keydown(function() {
-        $('#password').removeClass("is-invalid");
-    });
-
-    $('#createAdmin').submit( function(e){
-        e.preventDefault();
-
-        $.ajax({
-            type:"POST",
-            url:"/administrators/store",
-            data: $('#createAdmin').serialize(),
-            async: true,
-            dataType: 'json',
-
-            success: function(data){
-                alert("good");
-                setTimeout(function(){
-                    window.location.replace('/administrators/index');
-                },3000);
-            },
-
-            error: function(data){
-                var data = data.responseJSON;
-
-                console.log(data);
-
-                if(data.errors.first_name){
-                    $('#first_name').addClass("is-invalid");
-                }
-                
-                if(data.errors.last_name){
-                    $('#last_name').addClass("is-invalid");
-                }
-
-                if(data.errors.email){
-                    $('#email').addClass("is-invalid");
-                }
-
-                if(data.errors.password){
-                    $('#password').addClass("is-invalid");
-                }
-            }
-        });
-    });
-
-</script>
+@include('keymakers.modals.edit-admin')
 
 @endsection
