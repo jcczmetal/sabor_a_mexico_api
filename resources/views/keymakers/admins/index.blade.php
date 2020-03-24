@@ -71,7 +71,16 @@
                                             Acciones
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#editAdminModal" >Editar</a>
+                                            <a  class="dropdown-item" 
+                                                data-toggle="modal" 
+                                                data-target="#editAdminModal" 
+                                                data-first_name_edit="{{ $admin->first_name }}"
+                                                data-last_name_edit="{{ $admin->last_name }}"
+                                                data-email_edit="{{ $admin->email }}"
+                                                data-profile_edit="{{ $admin->getRoleNames()->first() }}"
+                                                data-active_edit="{{ $admin->getAllPermissions()->first() }}">
+                                            Editar
+                                            </a>
                                         </div>
                                     </div>
                                 </td>

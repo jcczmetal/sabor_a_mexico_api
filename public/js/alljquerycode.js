@@ -58,13 +58,17 @@ $('#createAdmin').submit( function(e){
 
 $('#editAdminModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
-    var firstNameEditAdmin = button.data('firstNameEditAdmin')
-    var lastNameEditAdmin = button.data('lastNameEditAdmin')
-    var emailEditAdmin = button.data('emailEditAdmin')
-    var passwordEditAdmin = button.data('lastNameEditAdmin')
-    
+    var firstName = button.data('first_name_edit')
+    var lastName = button.data('last_name_edit')
+    var email = button.data('email_edit')
+    var profile = button.data('profile_edit')
+    var active = button.data('active_edit')
     
     var modal = $(this)
-    modal.find('#modal-title').text('New message to ' + recipient)
-    modal.find('.modal-body input').val(recipient)
+
+    modal.find('#edit_first_name').val(firstName)
+    modal.find('#edit_last_name').val(lastName)
+    modal.find('#edit_email').val(email)
+    modal.find('#edit_active').val(active)
+    modal.find('#edit_profile').val(profile)
   })
