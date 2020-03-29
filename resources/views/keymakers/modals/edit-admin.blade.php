@@ -1,7 +1,8 @@
 <div class="modal fade" id="editAdminModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
-        <form id="createAdmin">
+        <form id="editAdmin">
             @csrf
+            @method('PUT')
 
             <div class="modal-content">
             
@@ -13,10 +14,12 @@
                 </div>
             
                 <div class="modal-body">
+
+                    <input id="edit_admin_id" name="edit_admin_id" type="hidden">
                 
                     <div class="form-group">
                         <label>Nombre</label>
-                        <input type="text" name="" value="" id="edit_first_name" class="form-control">
+                        <input type="text" name="edit_first_name" id="edit_first_name" class="form-control">
                         <div class="invalid-feedback">
                             El primer nombre es incorrecto.
                         </div>

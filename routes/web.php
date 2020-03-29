@@ -10,30 +10,12 @@ Route::middleware(['auth','role:keymaker'])->namespace('Keymakers')->group(funct
                    asignarles roles de asociado, administrador, etc, desactivarlos, 
                    crear restaurantes, desactivarlos 
     */
-
-    //Dashboard con números de todos los modelos a los que sólo pueden acceder los keymakers. //Done
-    Route::get('keymakers/dashboard',                       'KeymakersDashboardController@index')->name('keymasters-dashboard');
+    Route::get('keymakers/dashboard',                     'KeymakersDashboardController@index')->name('keymasters-dashboard');
     
-    //Supongo que temporalmente no necesitamos esto.
-    Route::get('administrators/index',                      'AdministratorsManagementController@index')->name('index-administrators');
-    
-    //Esta de plano no la utilizamos por el momento
-    Route::get('administrators/create',                     'AdministratorsManagementController@create')->name('create-administrators');
-    
-    //Esta sí
-    Route::post('administrators/store',                     'AdministratorsManagementController@store')->name('store-administrators');
-    
-    //Debe tener su propia página
-    Route::get('administrators/{slug}/show',                'AdministratorsManagementController@show')->name('show-administrators');
-    
-    //Esta tampoco, es el mismo modal del create pero con los datos.
-    Route::get('administrators/{slug}/edit',                'AdministratorsManagementController@edit')->name('edit-administrators');
-    
-    //a esta apunta el ajax
-    Route::put('administrators/{slug}/update',              'AdministratorsManagementController@update')->name('update-administrators');
-    
-    //Asignar roles
-    //Asignamos 
+    Route::get('administrators/index',                    'AdministratorsManagementController@index')->name('index-administrators');
+    Route::post('administrators/store',                   'AdministratorsManagementController@store')->name('store-administrators');
+    Route::get('administrators/{id}/show',                'AdministratorsManagementController@show')->name('show-administrators');
+    Route::put('administrators/{id}/update',              'AdministratorsManagementController@update')->name('update-administrators');
 });
 
 Route::middleware(['auth','role:keymaker|admin|associate'])->namespace('Restaurants')->group(function(){

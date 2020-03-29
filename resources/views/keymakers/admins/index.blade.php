@@ -73,7 +73,8 @@
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a  class="dropdown-item" 
                                                 data-toggle="modal" 
-                                                data-target="#editAdminModal" 
+                                                data-target="#editAdminModal"
+                                                data-admin_id_edit="{{ $admin->id }}"
                                                 data-first_name_edit="{{ $admin->first_name }}"
                                                 data-last_name_edit="{{ $admin->last_name }}"
                                                 data-email_edit="{{ $admin->email }}"
