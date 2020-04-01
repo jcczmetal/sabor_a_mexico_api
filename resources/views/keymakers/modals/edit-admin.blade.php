@@ -20,30 +20,30 @@
                     <div class="form-group">
                         <label>Nombre</label>
                         <input type="text" name="edit_first_name" id="edit_first_name" class="form-control">
-                        <div class="invalid-feedback">
-                            El primer nombre es incorrecto.
+                        <div class="invalid-feedback" id="edit_first_name_error">
+                            
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>Apellido (solo el primero)</label>
-                        <input type="text" name="last_name" id="edit_last_name" class="form-control">
-                        <div class="invalid-feedback">
-                            El segundo nombre es incorrecto.
+                        <input type="text" name="edit_last_name" id="edit_last_name" class="form-control">
+                        <div class="invalid-feedback" id="edit_last_name_error">
+                            
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>Correo electrónico</label>
-                        <input type="email" name="email" id="edit_email" class="form-control">
-                        <div class="invalid-feedback">
-                            El correo electrónico es incorrecto o ya existe.
+                        <input type="email" name="edit_email" id="edit_email" class="form-control">
+                        <div class="invalid-feedback" id="edit_email_error">
+                            
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label>Perfil</label>
-                        <select class="form-control" name="profile" id="edit_profile">
+                        <select class="form-control" name="edit_profile" id="edit_profile">
                             <option value="admin">Administrador interno</option>
                             <option value="associate">Asociado restaurantero</option>
                         </select>
@@ -51,7 +51,7 @@
 
                     <div class="form-group">
                         <label>Contraseña provisional</label>
-                        <input type="password" class="form-control" name="password" id="edit_password">
+                        <input type="password" class="form-control" name="edit_password" id="edit_password">
                         <div class="invalid-feedback">
                             La contraseña es incorrecta. Mínimo 10 caracteres.
                         </div>
@@ -66,7 +66,7 @@
                 </div>
             
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="dismiss-modal-edit">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Guardar cambios</button>
                 </div>
             </form>

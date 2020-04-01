@@ -27,6 +27,8 @@ $("#dismissModal").click(function() {
 $('#createAdmin').submit( function(e){
     e.preventDefault();
 
+    console.log($('#createAdmin').serialize());
+
     $.ajax({
         type:"POST",
         url:"/administrators/store",
@@ -107,7 +109,7 @@ $('#editAdmin').submit( function(e){
     $.ajax({
         type:"PUT",
         url:'/administrators/'+ $('#edit_admin_id').val() +'/update',
-        data: $('#editAdminModal').serialize(),
+        data: $('#editAdmin').serialize(),
         async: true,
         dataType: 'json',
 
@@ -123,17 +125,31 @@ $('#editAdmin').submit( function(e){
 
             console.log(data);
 
-            if(data.errors.editirst_name){
+            if(data.errors.edit_first_name){
                 $('#edit_first_name').addClass("is-invalid");
+                $('#edit_first_name_error').append(data.errors.edit_first_name);
             }
             
-            if(data.errors.lastNameNewAdmin){
+            if(data.errors.edit_last_name){
                 $('#edit_last_name').addClass("is-invalid");
+                $('#edit_last_name_error').append(data.errors.edit_last_name);
             }
 
-            if(data.errors.emailNewAdmin){
+            if(data.errors.edit_email){
                 $('#edit_email').addClass("is-invalid");
+                $('#edit_email_error').append(data.errors.edit_email);
             }
         }
     });
 });
+
+
+$("#dismiss-modal-edit").click(function() {
+    $('#edit_first_name').removeClass("is-invalid");
+    $('#edit_last_name').removeClass("is-invalid");
+    $('#edit_email').removeClass("is-invalid");
+    $('#edit_active').removeClass("is-invalid");
+});
+
+
+//Falta hacer que las validaciones desaparezcan cuando se hace click fuera del modal.

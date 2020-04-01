@@ -37,13 +37,25 @@
                             El correo electrónico es incorrecto o ya existe.
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
-                        <label>Perfil</label>
-                        <select class="form-control" name="profileNewAdmin" id="profileNewAdmin">
-                            <option value="admin">Administrador interno</option>
-                            <option value="associate">Asociado restaurantero</option>
-                        </select>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" name="profileNewAdmin[]" type="checkbox" value="something" id="admin-checkbox">
+                            <label class="form-check-label">
+                                Administrador
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" name="profileNewAdmin[]" type="checkbox" value="else" id="associate-checkbox">
+                            <label class="form-check-label">
+                                Restaurantero
+                            </label>
+
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div>
+                        </div>    
                     </div>
 
                     <div class="form-group">
