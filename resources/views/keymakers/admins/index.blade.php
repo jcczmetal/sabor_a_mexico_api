@@ -9,13 +9,13 @@
                     <div class="card-header">
                         Administradores registrados
                     </div>
-                    
+
                     <div class="card-body">
                         <h2 class="card-title">{{ $admins->count() }}</h2>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createAdminModal">
                             Registrar administrador
                         </button>
-                    </div>                    
+                    </div>
                 </div>
             </div>
 
@@ -24,13 +24,13 @@
                     <div class="card-header">
                         Administradores inactivos
                     </div>
-                    
+
                     <div class="card-body">
                         <h2 class="card-title">1</h2>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Registrar administrador
                         </button>
-                    </div>                    
+                    </div>
                 </div>
             </div>
 
@@ -39,13 +39,13 @@
                     <div class="card-header">
                         Something
                     </div>
-                    
+
                     <div class="card-body">
                         <h2 class="card-title">7</h2>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Registrar administrador
                         </button>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,15 +71,15 @@
                                             Acciones
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a  class="dropdown-item" 
-                                                data-toggle="modal" 
-                                                data-target="#editAdminModal"
-                                                data-admin_id_edit="{{ $admin->id }}"
-                                                data-first_name_edit="{{ $admin->first_name }}"
-                                                data-last_name_edit="{{ $admin->last_name }}"
-                                                data-email_edit="{{ $admin->email }}"
-                                                data-profile_edit="{{ $admin->getRoleNames()->first() }}"
-                                                data-active_edit="{{ $admin->getAllPermissions()->first() }}">
+                                            <a  class="dropdown-item"
+                                                data-toggle="modal"
+                                                data-target="#editadmin-modal"
+                                                data-editadmin_id="{{ $admin->id }}"
+                                                data-editadmin_firstname="{{ $admin->first_name }}"
+                                                data-editadmin_lastname="{{ $admin->last_name }}"
+                                                data-editadmin_email="{{ $admin->email }}"
+                                                data-editadmin_profile="{{ $admin->getRoleNames()->first() }}"
+                                                data-editadmin_active="{{ $admin->getAllPermissions()->first() }}">
                                             Editar
                                             </a>
                                         </div>

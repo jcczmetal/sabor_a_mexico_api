@@ -41,22 +41,22 @@ class AdministratorsManagementController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'firstNameNewAdmin'  => 'required|max:20',
-            'lastNameNewAdmin'   => 'required|max:20',
-            'emailNewAdmin'      => ['required','unique:users,email','max:100'],
-            'profileNewAdmin'    => ['required','array', Rule::in(['admin', 'associate'])],
-            'profileNewAdmin.*'  => Rule::in(['admin', 'associate']),
-            'passwordNewAdmin'   => 'required|min:10'
+            'newadmin_firstname'  => 'required|max:20',
+            'newadmin_lastname'   => 'required|max:20',
+            'newadmin_email'      => ['required','unique:users,email','max:100'],
+            'newadmin_profile'    => ['required','array', Rule::in(['admin', 'associate'])],
+            'newadmin_profile.*'  => Rule::in(['admin', 'associate']),
+            'newadmin_password'   => 'required|min:10'
         ]);
 
         $newAdmin = User::create([
-            'first_name' => $request->firstNameNewAdmin,
-            'last_name'  => $request->lastNameNewAdmin,
-            'email'      => $request->emailNewAdmin,
-            'password'   => Hash::make($request->passwordNewAdmin)
+            'first_name' => $request->newadmin_firstname,
+            'last_name'  => $request->newadmin_lastname,
+            'email'      => $request->newadmin_email,
+            'password'   => Hash::make($request->newadmin_password)
         ]);
 
-        $newAdmin->assignRole($request->profileNewAdmin);
+        $newAdmin->assignRole($request->newadmin_profile);
 
         return response()->json(
             ['success'],
@@ -72,27 +72,21 @@ class AdministratorsManagementController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'edit_admin_id'   => 'required|numeric',
-            'edit_first_name' => 'required|max:20',
-            'edit_last_name'  => 'required|max:20',
-            'edit_email'      => ['required','max:100'],
-            'edit_profile'    => ['required', Rule::in(['admin', 'associate'])],
-            'edit_password'   => 'required|min:10'
+            'editadmin_id'        => 'required|numeric',
+            'editadmin_firstname' => 'required|max:20',
+            'editadmin_lastname'  => 'required|max:20',
+            'editadmin_email'     => ['required','max:100'],
+            //'editadmin_profile'   => ['required', Rule::in(['admin', 'associate'])], //por el momento no se edita el perfil
         ]);
 
-        $adminUpdated = User::findOrFail($request->edit_admin_id);
+        //manejar la respuesta tipo json, investigar.
+        $adminToUpdate = User::findOrFail($request->editadmin_id);
 
-        $roles = $adminUpdated->getRoleNames();
+        $adminToUpdate->first_name = $request->editadmin_firstname;
+        $adminToUpdate->last_name  = $request->editadmin_lastname;
+        $adminToUpdate->email      = $request->editadmin_email;
 
-
-
-        $adminUpdated->first_name = $request->edit_first_name;
-        $adminUpdated->last_name = $request->edit_last_name;
-        $adminUpdated->email = $request->edit_email;
-
-
-
-        $adminUpdated->save();
+        $adminToUpdate->save();
 
         return response()->json(
             ['success'],
@@ -100,7 +94,6 @@ class AdministratorsManagementController extends Controller
         );
     }
 
-    
     public function destroy($id)
     {
         //

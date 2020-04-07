@@ -14,22 +14,30 @@
             
                 <div class="modal-body">
                 
-                    <div class="form-group">
-                        <label>Nombre</label>
-                        <input type="text" name="firstNameNewAdmin" id="firstNameNewAdmin" class="form-control">
-                        <div class="invalid-feedback">
-                            El primer nombre es incorrecto.
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text" name="firstNameNewAdmin" id="firstNameNewAdmin" class="form-control">
+                                
+                                <div class="invalid-feedback">
+                                    El primer nombre es incorrecto.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Apellido (solo el primero)</label>
+                                <input type="text" name="lastNameNewAdmin" id="lastNameNewAdmin" class="form-control">
+                                
+                                <div class="invalid-feedback">
+                                    El segundo nombre es incorrecto.
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label>Apellido (solo el primero)</label>
-                        <input type="text" name="lastNameNewAdmin" id="lastNameNewAdmin" class="form-control">
-                        <div class="invalid-feedback">
-                            El segundo nombre es incorrecto.
-                        </div>
-                    </div>
-
+                    
                     <div class="form-group">
                         <label>Correo electrónico</label>
                         <input type="email" name="emailNewAdmin" id="emailNewAdmin" class="form-control">

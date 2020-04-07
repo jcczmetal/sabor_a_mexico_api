@@ -1,27 +1,52 @@
 /*
     First, handle the create process.
 */
-$("#firstNameNewAdmin").keydown(function() {
-    $('#firstNameNewAdmin').removeClass("is-invalid");
+/*
+    keydown
+        removeClass("is-valid") on input
+        .empty() on div showing validation error messages
+
+    dismiss modal
+        removeClass("is-valid") on input
+        .empty() on div showing validation error messages
+
+    on error ajax request
+        .addClass("is-invalid")
+        .append(data.errors.attribute)
+*/
+
+$("#newadmin_firstname").keydown(function() {
+    $('#newadmin_firstname').removeClass("is-invalid");
+    $('#newadmin_firstname').empty();
 });
 
-$("#lastNameNewAdmin").keydown(function() {
-    $('#lastNameNewAdmin').removeClass("is-invalid");
+$("#newadmin_lastname").keydown(function() {
+    $('#newadmin_lastname').removeClass("is-invalid");
+    $('#newadmin_lastname').empty();
 });
 
-$("#emailNewAdmin").keydown(function() {
-    $('#emailNewAdmin').removeClass("is-invalid");
+$("#newadmin_email").keydown(function() {
+    $('#newadmin_email').removeClass("is-invalid");
+    $('#newadmin_email').empty();
 });
 
-$("#passwordNewAdmin").keydown(function() {
-    $('#passwordNewAdmin').removeClass("is-invalid");
+$("#newadmin_password").keydown(function() {
+    $('#newadmin_password').removeClass("is-invalid");
+    $('#newadmin_password').empty();
 });
 
 $("#dismissModal").click(function() {
-    $('#firstNameNewAdmin').removeClass("is-invalid");
-    $('#lastNameNewAdmin').removeClass("is-invalid");
+    $('#newadmin_firstname').removeClass("is-invalid");
+    $('#newadmin_firstname').empty();
+    $('#newadmin_firstname_error').empty();
+    $('#newadmin_lastname').removeClass("is-invalid");
+    $('#newadmin_lastname').empty();
+    $('#newadmin_lastname_error').empty();
     $('#emailNewAdmin').removeClass("is-invalid");
+    $('#emailNewAdmin').empty();
+    $('#emailNewAdmin_error').empty();
     $('#passwordNewAdmin').removeClass("is-invalid");
+    $('#passwordNewAdmin').empty();
 });
 
 $('#createAdmin').submit( function(e){
@@ -51,7 +76,7 @@ $('#createAdmin').submit( function(e){
             if(data.errors.firstNameNewAdmin){
                 $('#firstNameNewAdmin').addClass("is-invalid");
             }
-            
+
             if(data.errors.lastNameNewAdmin){
                 $('#lastNameNewAdmin').addClass("is-invalid");
             }
@@ -70,46 +95,48 @@ $('#createAdmin').submit( function(e){
     After that, handle the edit
 */
 
-//First, handle the keydown for every form input 
-$("#edit_first_name").keydown(function() {
-    $('#edit_first_name').removeClass("is-invalid");
+//First, handle the keydown for every form input
+$("#editadmin-firstname").keydown(function() {
+    $('#editadmin-firstname').removeClass("is-invalid");
+    $('#editadmin-firstname-error').empty();
 });
 
-$("#edit_last_name").keydown(function() {
-    $('#edit_last_name').removeClass("is-invalid");
+$("#editadmin-lastname").keydown(function() {
+    $('#editadmin-lastname').removeClass("is-invalid");
+    $('#editadmin-lastname-error').empty();
 });
 
-$("#edit_email").keydown(function() {
-    $('#edit_email').removeClass("is-invalid");
+$("#editadmin-email").keydown(function() {
+    $('#editadmin-email').removeClass("is-invalid");
+    $('#editadmin-email-error').empty();
 });
 
-
-$('#editAdminModal').on('show.bs.modal', function (event) {
+$('#editadmin-modal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
-    var adminId = button.data('admin_id_edit')
-    var firstName = button.data('first_name_edit')
-    var lastName = button.data('last_name_edit')
-    var email = button.data('email_edit')
-    var profile = button.data('profile_edit')
-    var active = button.data('active_edit')
-    
+    var adminId = button.data('editadmin_id')
+    var firstName = button.data('editadmin_firstname')
+    var lastName = button.data('editadmin_lastname')
+    var email = button.data('editadmin_email')
+    var profile = button.data('editadmin_profile')
+    var active = button.data('editadmin_active')
+
     var modal = $(this)
 
-    modal.find('#edit_admin_id').val(adminId)
-    modal.find('#edit_first_name').val(firstName)
-    modal.find('#edit_last_name').val(lastName)
-    modal.find('#edit_email').val(email)
-    modal.find('#edit_active').val(active)
-    modal.find('#edit_profile').val(profile)
+    modal.find('#editadmin_id').val(adminId)
+    modal.find('#editadmin_firstname').val(firstName)
+    modal.find('#editadmin_lastname').val(lastName)
+    modal.find('#editadmin_email').val(email)
+    modal.find('#editadmin_active').val(active)
+    modal.find('#editadmin_profile').val(profile)
 })
 
-$('#editAdmin').submit( function(e){
+$('#editadmin-form').submit( function(e){
     e.preventDefault();
 
     $.ajax({
         type:"PUT",
-        url:'/administrators/'+ $('#edit_admin_id').val() +'/update',
-        data: $('#editAdmin').serialize(),
+        url:'/administrators/'+ $('#editadmin_id').val() +'/update',
+        data: $('#editadmin-form').serialize(),
         async: true,
         dataType: 'json',
 
@@ -125,31 +152,38 @@ $('#editAdmin').submit( function(e){
 
             console.log(data);
 
-            if(data.errors.edit_first_name){
-                $('#edit_first_name').addClass("is-invalid");
-                $('#edit_first_name_error').append(data.errors.edit_first_name);
-            }
-            
-            if(data.errors.edit_last_name){
-                $('#edit_last_name').addClass("is-invalid");
-                $('#edit_last_name_error').append(data.errors.edit_last_name);
+            if(data.errors.editadmin_firstname){
+                $('#editadmin_firstname').addClass("is-invalid");
+                if(!$('#editadmin_firstname_error').text().length){
+                    $('#editadmin_firstname_error').append(data.errors.editadmin_firstname);
+                }
             }
 
-            if(data.errors.edit_email){
-                $('#edit_email').addClass("is-invalid");
-                $('#edit_email_error').append(data.errors.edit_email);
+            if(data.errors.editadmin_lastname){
+                $('#editadmin_lastname').addClass("is-invalid");
+                if(!$('#editadmin_lastname_error').text().length){
+                    $('#editadmin_lastname_error').append(data.errors.editadmin_lastname);
+                }
+            }
+
+            if(data.errors.editadmin_email){
+                $('#editadmin_email').addClass("is-invalid");
+                if(!$('#editadmin_email_error').text().length){
+                    $('#editadmin_email_error').append(data.errors.editadmin_email);
+                }
             }
         }
     });
 });
 
-
 $("#dismiss-modal-edit").click(function() {
-    $('#edit_first_name').removeClass("is-invalid");
-    $('#edit_last_name').removeClass("is-invalid");
-    $('#edit_email').removeClass("is-invalid");
-    $('#edit_active').removeClass("is-invalid");
+    $('#editadmin_firstname').removeClass("is-invalid");
+    $('#editadmin_firstname_error').empty();
+    $('#editadmin_lastname').removeClass("is-invalid");
+    $('#editadmin_lastname_error').empty();
+    $('#editadmin_email').removeClass("is-invalid");
+    $('#editadmin_email_error').empty();
+    $('#editadmin_active').removeClass("is-invalid");
 });
-
 
 //Falta hacer que las validaciones desaparezcan cuando se hace click fuera del modal.
