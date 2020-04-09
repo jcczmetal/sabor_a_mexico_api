@@ -42,22 +42,23 @@ $("#dismissModal").click(function() {
     $('#newadmin_lastname').removeClass("is-invalid");
     $('#newadmin_lastname').empty();
     $('#newadmin_lastname_error').empty();
-    $('#emailNewAdmin').removeClass("is-invalid");
-    $('#emailNewAdmin').empty();
-    $('#emailNewAdmin_error').empty();
-    $('#passwordNewAdmin').removeClass("is-invalid");
-    $('#passwordNewAdmin').empty();
+    $('#newadmin_email').removeClass("is-invalid");
+    $('#newadmin_email').empty();
+    $('#newadmin_email_error').empty();
+    $('#newadmin_password').removeClass("is-invalid");
+    $('#newadmin_password').empty();
+    $('#newadmin_password_error').empty();
 });
 
-$('#createAdmin').submit( function(e){
+$('#createadmin-form').submit( function(e){
     e.preventDefault();
 
-    console.log($('#createAdmin').serialize());
+    console.log($('#createadmin-form').serialize());
 
     $.ajax({
         type:"POST",
         url:"/administrators/store",
-        data: $('#createAdmin').serialize(),
+        data: $('#createadmin-form').serialize(),
         async: true,
         dataType: 'json',
 
@@ -73,20 +74,32 @@ $('#createAdmin').submit( function(e){
 
             console.log(data);
 
-            if(data.errors.firstNameNewAdmin){
-                $('#firstNameNewAdmin').addClass("is-invalid");
+            if(data.errors.newadmin_firstname){
+                $('#newadmin_firstname').addClass("is-invalid");
+                if(!$('#newadmin_firstname_error').text().length){
+                    $('#newadmin_firstname_error').append(data.errors.newadmin_firstname);
+                }
             }
 
-            if(data.errors.lastNameNewAdmin){
-                $('#lastNameNewAdmin').addClass("is-invalid");
+            if(data.errors.newadmin_lastname){
+                $('#newadmin_lastname').addClass("is-invalid");
+                if(!$('#newadmin_lastname_error').text().length){
+                    $('#newadmin_lastname_error').append(data.errors.newadmin_lastname);
+                }
             }
 
-            if(data.errors.emailNewAdmin){
-                $('#emailNewAdmin').addClass("is-invalid");
+            if(data.errors.newadmin_email){
+                $('#newadmin_email').addClass("is-invalid");
+                if(!$('#newadmin_email_error').text().length){
+                    $('#newadmin_email_error').append(data.errors.newadmin_email);
+                }
             }
 
-            if(data.errors.passwordNewAdmin){
-                $('#passwordNewAdmin').addClass("is-invalid");
+            if(data.errors.newadmin_password){
+                $('#newadmin_password').addClass("is-invalid");
+                if(!$('#newadmin_password_error').text().length){
+                    $('#newadmin_password_error').append(data.errors.newadmin_password);
+                }
             }
         }
     });

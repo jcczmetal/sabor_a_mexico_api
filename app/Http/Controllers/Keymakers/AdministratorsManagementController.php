@@ -44,7 +44,7 @@ class AdministratorsManagementController extends Controller
             'newadmin_firstname'  => 'required|max:20',
             'newadmin_lastname'   => 'required|max:20',
             'newadmin_email'      => ['required','unique:users,email','max:100'],
-            'newadmin_profile'    => ['required','array', Rule::in(['admin', 'associate'])],
+            //'newadmin_profile'    => ['required','array', Rule::in(['admin', 'associate'])],
             'newadmin_profile.*'  => Rule::in(['admin', 'associate']),
             'newadmin_password'   => 'required|min:10'
         ]);
