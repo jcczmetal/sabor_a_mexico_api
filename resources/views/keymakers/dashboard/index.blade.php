@@ -9,12 +9,12 @@
                     <div class="card-header">
                         Administradores totales
                     </div>
-                    
+
                     <div class="card-body">
                         <h2 class="card-title">{{ $admins }}</h2>
                         <p class="card-text">Ir al panel de administradores.</p>
                         <a href="{{ route('index-administrators') }}" class="btn btn-primary">Ver administradores</a>
-                    </div>                    
+                    </div>
                 </div>
             </div>
 
@@ -23,18 +23,18 @@
                     <div class="card-header">
                         Asociados totales
                     </div>
-                    
+
                     <div class="card-body">
                         <h2 class="card-title">{{ $associates }}</h2>
                         <p class="card-text">Ir al panel de asociados.</p>
-                        <a href="{{ route('index-associate') }}" class="btn btn-primary">Registrar asociado</a>
-                    </div>                    
+                        <a href="{{ route('index-associate') }}" class="btn btn-primary">Ver asociados</a>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="row">
-           
+
         </div>
     </div>
 
