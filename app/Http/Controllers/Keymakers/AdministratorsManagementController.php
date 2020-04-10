@@ -44,8 +44,6 @@ class AdministratorsManagementController extends Controller
             'newadmin_firstname'  => 'required|max:20',
             'newadmin_lastname'   => 'required|max:20',
             'newadmin_email'      => ['required','unique:users,email','max:100'],
-            //'newadmin_profile'    => ['required','array', Rule::in(['admin', 'associate'])],
-            'newadmin_profile.*'  => Rule::in(['admin', 'associate']),
             'newadmin_password'   => 'required|min:10'
         ]);
 
@@ -56,7 +54,7 @@ class AdministratorsManagementController extends Controller
             'password'   => Hash::make($request->newadmin_password)
         ]);
 
-        $newAdmin->assignRole($request->newadmin_profile);
+        $newAdmin->assignRole('admin');
 
         return response()->json(
             ['success'],
@@ -66,7 +64,7 @@ class AdministratorsManagementController extends Controller
 
     public function show($id)
     {
-        //
+        //Después podríamos tener una página completa con el perfil del administrador.
     }
 
     public function update(Request $request, $id)
@@ -76,7 +74,6 @@ class AdministratorsManagementController extends Controller
             'editadmin_firstname' => 'required|max:20',
             'editadmin_lastname'  => 'required|max:20',
             'editadmin_email'     => ['required','max:100'],
-            //'editadmin_profile'   => ['required', Rule::in(['admin', 'associate'])], //por el momento no se edita el perfil
         ]);
 
         //manejar la respuesta tipo json, investigar.
@@ -96,6 +93,6 @@ class AdministratorsManagementController extends Controller
 
     public function destroy($id)
     {
-        //
+        // Después haremos un soft delete
     }
 }
