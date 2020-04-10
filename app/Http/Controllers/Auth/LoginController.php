@@ -37,4 +37,22 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    protected function authenticated($request, $user){
+
+        if($user->hasRole('keymaker')){
+            return redirect('keymakers/dashboard');
+        }
+
+        if($user->hasRole('admin')){
+            return redirect('associate/index');
+        }
+
+        if($user->hasRole('associate')){
+            
+            $user = 'mi restaurante';
+
+            return redirect('restaurant/index');
+        }
+    }
 }
