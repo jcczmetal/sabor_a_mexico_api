@@ -19,9 +19,9 @@ Route::middleware(['auth','role:keymaker'])->namespace('Keymakers')->group(funct
 Route::middleware(['auth','role:keymaker|admin|associate'])->namespace('Restaurants')->group(function(){
 
     Route::get('restaurants/index',                'RestaurantsManagementController@index')->name('index-restaurants');
-    Route::post('restaurants/store',               'RestaurantsManagementController@store')->name('index-restaurants');
-    Route::get('restaurants/{slug}/show',          'RestaurantsManagementController@show')->name('index-restaurants');
-    Route::put('restaurants/{slug}/update',        'RestaurantsManagementController@update')->name('index-restaurants');
+    Route::post('restaurants/store',               'RestaurantsManagementController@store')->name('store-restaurant');
+    Route::get('restaurants/{slug}/show',          'RestaurantsManagementController@show')->name('show-restaurant');
+    Route::put('restaurants/{slug}/update',        'RestaurantsManagementController@update')->name('update-restaurant');
 });
 
 Route::middleware(['auth','role:admin|keymaker'])->namespace('Administration')->group(function(){

@@ -37,9 +37,23 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        @hasanyrole('keymaker')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('index-administrators') }}">Administradores</a>
+                        </li>
+                        @endhasanyrole
+
+                        @hasanyrole('keymaker|admin')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('index-associate') }}">Asociados</a>
                         </li>
+                        @endhasanyrole
+
+                        @hasanyrole('keymaker|admin|associate')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('index-restaurants') }}">Restaurantes</a>
+                        </li>
+                        @endhasanyrole
                     </ul>
 
                     <!-- Right Side Of Navbar -->

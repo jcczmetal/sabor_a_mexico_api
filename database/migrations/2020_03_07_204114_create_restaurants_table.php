@@ -21,7 +21,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('phone', 12);
             $table->string('email', 30);
             $table->string('address', 150);
-
+            $table->boolean('active');
             $table->float('latitude', 10, 6);
             $table->float('longitude', 10, 6);
             $table->timestamps();
