@@ -8,5 +8,7 @@ class Restaurant extends Model
 {
     protected $table = 'restaurants';
 
-    
+    //tiene fotografías
+    //tiene criticas
+    //pertenece
 }

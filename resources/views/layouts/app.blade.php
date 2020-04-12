@@ -51,7 +51,7 @@
 
                         @hasanyrole('keymaker|admin|associate')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('index-restaurants') }}">Restaurantes</a>
+                            <a class="nav-link" href="{{ route('mg-index-restaurants') }}">Restaurantes</a>
                         </li>
                         @endhasanyrole
                     </ul>

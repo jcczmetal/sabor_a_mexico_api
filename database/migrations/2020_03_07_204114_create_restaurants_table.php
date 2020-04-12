@@ -19,11 +19,11 @@ class CreateRestaurantsTable extends Migration
             $table->string('slug', 100); //need some sort of logic to get this
             $table->string('website', 100);
             $table->string('phone', 12);
-            $table->string('email', 30);
+            $table->string('email', 50);
             $table->string('address', 150);
             $table->boolean('active');
-            $table->float('latitude', 10, 6);
-            $table->float('longitude', 10, 6);
+            $table->float('latitude', 10, 6)->nullable();
+            $table->float('longitude', 10, 6)->nullable();
             $table->timestamps();
         });
     }

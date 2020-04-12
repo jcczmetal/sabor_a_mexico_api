@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Hash;
 $factory->define(User::class, function (Faker $faker) {
     return [
         'first_name' => $faker->randomElement(array ('Pepe','André','Adrián','Julio','Carlos','Ana','Ruth','Gloria','Ale','Bere')),
-        'last_name' => $faker->randomElement(array ('Ramírez','González','Vilar','García','Carrillo','López','Obrador','')),
+        'last_name' => $faker->randomElement(array ('Ramírez','González','Vilar','García','Carrillo','López','Obrador')),
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => Hash::make('patito123'), // password

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Restaurants;
 
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use App\Http\Requests\Restaurants\CreateRestaurant;
 use App\Http\Controllers\Controller;
 
 class RestaurantsManagementController extends Controller
@@ -12,13 +13,47 @@ class RestaurantsManagementController extends Controller
 	{
 		//Keymakers		 -> Mostrar todos los restaurantes.
 		//Administrators -> Mostrar todos los restaurantes.
-		if(auth()->user()->HasRole('keymaker') || auth()->user()->HasRole('admin')) {
-			Restaurant::where('status','active')->get();
+
+		$userRole = auth()->user()->getRoleNames()->first();
+
+		if($userRole == 'keymaker' || $userRole == 'admin') {
+			$restaurants = Restaurant::where('active', true)->get();
+
+			return view('restaurants.index',compact('restaurants'));
 		}
 
 		//Associate		-> Mostrar los restaurantes que han generado o que se le han asignado.
-		if(auth()->user()->HasRole('associate')) {
-
+		if(auth()->user()->hasRole('associate')) {
+			return "hello associate";
 		}
+	}
+
+	public function store(CreateRestaurant $request)
+	{
+        $newRestaurant = Restaurant::create([
+        	'name'		=> $request->newrest_name,
+			'slug'		=> $request->newrest_slug,
+			'website'	=> $request->newrest_website,
+			'phone'		=> $request->newrest_phone,
+			'email'		=> $request->newrest_email,
+			'active'	=> $request->newrest_active,
+			'address'	=> $request->newrest_address,
+			'latitude'	=> $request->newrest_latitude,
+			'longitude'	=> $request->newrest_longitude
+        ]);
+
+
+	}
+
+	public function show($slug)
+	{
+		$restaurant = Restaurant::where('slug', $slug)->first();
+
+		return view('restaurants.show',compact('restaurant'));
+	}
+
+	public function update(Request $request, $id)
+	{
+
 	}
 }

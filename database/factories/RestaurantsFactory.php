@@ -12,6 +12,7 @@ $factory->define(Restaurant::class, function (Faker $faker) {
         'website'   => $faker->url,
         'phone'     => $faker->numerify($string = '##########'),
         'email'     => $faker->safeEmail,
+        'active'    => 1,
         'address'   => $faker->streetAddress,
         'latitude'  => $faker->latitude,
         'longitude' => $faker->longitude
