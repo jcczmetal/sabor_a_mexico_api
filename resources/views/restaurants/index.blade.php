@@ -71,6 +71,7 @@
     </div>
 </div>
 
-
+@include('restaurants.modals.create-restaurant')
+@include('restaurants.modals.status-restaurant')
 
 @endsection

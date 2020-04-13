@@ -24,19 +24,19 @@ class CreateRestaurant extends FormRequest
     public function rules()
     {
         return [
-            'newrest_name'      => 'required',
-            'newrest_slug'      => 'required',
-            'newrest_website'   => 'required',
-            'newrest_phone'     => 'required',
-            'newrest_email'     => 'required',
+            'newrestaurant_name'      => 'required',
+            'newrestaurant_slug'      => 'required',
+            'newrestaurant_website'   => 'required',
+            'newrestaurant_phone'     => 'required',
+            'newrestaurant_email'     => 'required',
             //Falta definir ciertas reglas, esto posiblemente vaya activo por default
-            'newrest_active'    => 'required',
+            'newrestaurant_active'    => 'required',
 
-            'newrest_address'   => 'required', //Av Cuauhtemoc colonia centro, CDMX, CP.440404
+            'newrestaurant_address'   => 'required', //Av Cuauhtemoc colonia centro, CDMX, CP.440404
 
             //
-            'newrest_latitude'  => 'required',
-            'newrest_longitude' => 'required'
+            'newrestaurant_latitude'  => 'required',
+            'newrestaurant_longitude' => 'required'
         ];
     }
 }
