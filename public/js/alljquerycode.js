@@ -398,3 +398,77 @@ $("#dismiss-modal-edit").click(function() {
     $('#editassociate_email_error').empty();
     $('#editassociate_active').removeClass("is-invalid");
 });
+
+
+
+//
+$('#createrestaurant-form').submit( function(e){
+    e.preventDefault();
+
+    $.ajax({
+        type:"POST",
+        url:"/restaurants/store",
+        data: $('#createrestaurant-form').serialize(),
+        async: true,
+        dataType: 'json',
+
+        success: function(data){
+            setTimeout(function(){
+                window.location.replace('/restaurants/index');
+            },1000);
+        },
+
+        error: function(data){
+            var data = data.responseJSON;
+
+            console.log(data);
+
+            //Aquí te conviene más bien un foreach que ejecute addClass y append por cada error que envíe el server.
+
+            if(data.errors.newrestaurant_name){
+                $('#newrestaurant_name').addClass("is-invalid");
+                if(!$('#newrestaurant_name_error').text().length){
+                    $('#newrestaurant_name_error').append(data.errors.newrestaurant_name);
+                }
+            }
+
+            if(data.errors.newrestaurant_website){
+                $('#newrestaurant_website').addClass("is-invalid");
+                if(!$('#newrestaurant_website_error').text().length){
+                    $('#newrestaurant_website_error').append(data.errors.newrestaurant_website);
+                }
+            }
+
+            if(data.errors.newrestaurant_email){
+                $('#newrestaurant_email').addClass("is-invalid");
+                if(!$('#newrestaurant_email_error').text().length){
+                    $('#newrestaurant_email_error').append(data.errors.newrestaurant_email);
+                }
+            }
+
+            if(data.errors.newrestaurant_phone){
+                $('#newrestaurant_phone').addClass("is-invalid");
+                if(!$('#newrestaurant_phone_error').text().length){
+                    $('#newrestaurant_phone_error').append(data.errors.newrestaurant_phone);
+                }
+            }
+
+            if(data.errors.newrestaurant_address){
+                $('#newrestaurant_address').addClass("is-invalid");
+                if(!$('#newrestaurant_address_error').text().length){
+                    $('#newrestaurant_address_error').append(data.errors.newrestaurant_address);
+                }
+            }
+        }
+    });
+});
+
+$("#dismiss-modal-edit").click(function() {
+    $('#editassociate_firstname').removeClass("is-invalid");
+    $('#editassociate_firstname_error').empty();
+    $('#editassociate_lastname').removeClass("is-invalid");
+    $('#editassociate_lastname_error').empty();
+    $('#editassociate_email').removeClass("is-invalid");
+    $('#editassociate_email_error').empty();
+    $('#editassociate_active').removeClass("is-invalid");
+});

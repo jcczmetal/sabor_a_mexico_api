@@ -36,13 +36,23 @@ class RestaurantsManagementController extends Controller
 			'website'	=> $request->newrest_website,
 			'phone'		=> $request->newrest_phone,
 			'email'		=> $request->newrest_email,
-			'active'	=> $request->newrest_active,
+			'active'	=> true,
 			'address'	=> $request->newrest_address,
 			'latitude'	=> $request->newrest_latitude,
 			'longitude'	=> $request->newrest_longitude
         ]);
 
+        /*
+        if(auth()->user()->hasRole('associate')) {
+        	//necesitamos asociar el restaurante creado con el asociado que lo crea.
+        	//tendremos otro controlador que se encargará exclusivamente de asociar restaurant y asociado.
+        }
+        */
 
+        return response()->json(
+            ['success'],
+            200
+        );
 	}
 
 	public function show($slug)

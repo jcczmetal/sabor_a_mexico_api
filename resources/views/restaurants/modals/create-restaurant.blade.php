@@ -26,8 +26,8 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Página web</label>
-                                <input type="text" name="newrestaurant_website" id="newrestaurant_name" class="form-control">
-                                <div class="invalid-feedback" id="newrestaurant_name_error"></div>
+                                <input type="text" name="newrestaurant_website" id="newrestaurant_website" class="form-control">
+                                <div class="invalid-feedback" id="newrestaurant_website_error"></div>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                             <div class="form-group">
                                 <label>Correo electrónico</label>
                                 <input type="email" name="newrestaurant_email" id="newrestaurant_email" class="form-control">
-                                <div class="invalid-feedback"></div>
+                                <div class="invalid-feedback" id="newrestaurant_email_error"></div>
                             </div>
                         </div>
 
@@ -45,7 +45,7 @@
                             <div class="form-group">
                                 <label>Teléfono</label>
                                 <input type="email" name="newrestaurant_phone" id="newrestaurant_phone" class="form-control">
-                                <div class="invalid-feedback"></div>
+                                <div class="invalid-feedback" id="newrestaurant_phone_error"></div>
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                             <div class="form-group">
                                 <label>Dirección</label>
                                 <input type="text" name="newrestaurant_address" id="newrestaurant_address" class="form-control">
-                                <div class="invalid-feedback" id="newrestaurant_name_error"></div>
+                                <div class="invalid-feedback" id="newrestaurant_address_error"></div>
                             </div>
                         </div>
                     </div>
