@@ -44,7 +44,7 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label>Teléfono</label>
-                                <input type="email" name="newrestaurant_phone" id="newrestaurant_phone" class="form-control">
+                                <input type="number" name="newrestaurant_phone" id="newrestaurant_phone" class="form-control">
                                 <div class="invalid-feedback" id="newrestaurant_phone_error"></div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="dismissModal">Cancelar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Registrar restaurante</button>
                 </div>
             </form>
