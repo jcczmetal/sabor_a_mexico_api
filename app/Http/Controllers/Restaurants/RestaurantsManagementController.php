@@ -32,14 +32,13 @@ class RestaurantsManagementController extends Controller
 	{
         $newRestaurant = Restaurant::create([
         	'name'		=> $request->newrest_name,
-			'slug'		=> $request->newrest_slug,
 			'website'	=> $request->newrest_website,
 			'phone'		=> $request->newrest_phone,
 			'email'		=> $request->newrest_email,
 			'active'	=> true,
-			'address'	=> $request->newrest_address,
-			'latitude'	=> $request->newrest_latitude,
-			'longitude'	=> $request->newrest_longitude
+			//'address'	=> $request->newrest_address,
+			//'latitude'	=> $request->newrest_latitude,
+			//'longitude'	=> $request->newrest_longitude
         ]);
 
         /*

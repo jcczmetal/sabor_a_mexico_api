@@ -22,6 +22,8 @@ Route::middleware(['auth','role:keymaker|admin|associate'])->namespace('Restaura
     Route::post('restaurants/store',               'RestaurantsManagementController@store')->name('mg-store-restaurant');
     Route::get('restaurants/{slug}/show',          'RestaurantsManagementController@show')->name('mg-show-restaurant');
     Route::put('restaurants/{id}/update',          'RestaurantsManagementController@update')->name('mg-update-restaurant');
+
+    Route::put('restaurants/{id}/address/update',  'RestaurantsAddressController@update')->name('mg-update-address-restaurant');
 });
 
 Route::middleware(['auth','role:admin|keymaker'])->namespace('Administration')->group(function(){

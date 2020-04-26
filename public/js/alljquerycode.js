@@ -1,4 +1,4 @@
-//Todo input vacío (con error al hacer submit), al escribir en el, se le eliminar la clase is-invalid.
+//Todo input vacío (con error al hacer submit), al escribir en el, se elimina la clase is-invalid.
 $(".form-control").keydown(function(){
     var input =  '#' + $(this).attr("id");
 
@@ -17,9 +17,10 @@ $('.modal').on('hide.bs.modal', function () {
     });
 })
 
+// en cada manejo de respuesta error de un ajax request, pintar valores adecuados para inputs en modal forms.
 function handleErrorAndResponse(data) {
-    const id = '#' + data[0];
-    const error = id + '_error'
+    const id      = '#' + data[0];
+    const error   = id + '_error'
     const message = Object.values(data[1]);
 
     $(id).addClass("is-invalid");
