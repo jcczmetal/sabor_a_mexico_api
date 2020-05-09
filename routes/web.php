@@ -12,7 +12,7 @@ Route::middleware(['auth','role:keymaker'])->namespace('Keymakers')->group(funct
     Route::get('administrators/index',             'AdministratorsManagementController@index')->name('index-administrators');
     Route::post('administrators/store',            'AdministratorsManagementController@store')->name('store-administrators');
     //esta ruta es para cuando tengamos más funcionalidad sobre los administradores.
-    Route::get('administrators/{id}/show',         'AdministratorsManagementController@show')->name('show-administrators');
+    Route::get('administrators/{id}/profile',      'AdministratorsManagementController@show')->name('show-administrators');
     Route::put('administrators/{id}/update',       'AdministratorsManagementController@update')->name('update-administrators');
 });
 
@@ -20,7 +20,7 @@ Route::middleware(['auth','role:keymaker|admin|associate'])->namespace('Restaura
 
     Route::get('restaurants/index',                'RestaurantsManagementController@index')->name('mg-index-restaurants');
     Route::post('restaurants/store',               'RestaurantsManagementController@store')->name('mg-store-restaurant');
-    Route::get('restaurants/{slug}/show',          'RestaurantsManagementController@show')->name('mg-show-restaurant');
+    Route::get('restaurants/{slug}',               'RestaurantsManagementController@show')->name('mg-show-restaurant');
     Route::put('restaurants/{id}/update',          'RestaurantsManagementController@update')->name('mg-update-restaurant');
 
     Route::put('restaurants/{id}/address/update',  'RestaurantsAddressController@update')->name('mg-update-address-restaurant');

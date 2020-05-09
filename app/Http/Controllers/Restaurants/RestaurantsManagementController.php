@@ -30,15 +30,16 @@ class RestaurantsManagementController extends Controller
 
 	public function store(CreateRestaurant $request)
 	{
+		//modificar
+		$slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->newrestaurant_name), '-')) . rand(1000,9999);
+
         $newRestaurant = Restaurant::create([
-        	'name'		=> $request->newrest_name,
-			'website'	=> $request->newrest_website,
-			'phone'		=> $request->newrest_phone,
-			'email'		=> $request->newrest_email,
-			'active'	=> true,
-			//'address'	=> $request->newrest_address,
-			//'latitude'	=> $request->newrest_latitude,
-			//'longitude'	=> $request->newrest_longitude
+        	'name'		=> $request->newrestaurant_name,
+        	'slug'		=> $slug,
+			'website'	=> $request->newrestaurant_website,
+			'phone'		=> $request->newrestaurant_phone,
+			'email'		=> $request->newrestaurant_email,
+			'active'	=> false
         ]);
 
         /*
@@ -49,7 +50,7 @@ class RestaurantsManagementController extends Controller
         */
 
         return response()->json(
-            ['success'],
+            $newRestaurant->slug,
             200
         );
 	}

@@ -20,6 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="/custom.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
@@ -98,7 +99,10 @@
     </div>
 </body>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoaxTrbmUSAh2mnUL4NeE7cfms2mgjI5g&libraries=places&callback=initAutocomplete" async defer></script>
+
 <script type="text/javascript" src="/js/datatablesCode.js"></script>
 <script type="text/javascript" src="/js/alljquerycode.js"></script>
+
 
 </html>

@@ -49,16 +49,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label>Dirección</label>
-                                <input type="text" name="newrestaurant_address" id="newrestaurant_address" class="form-control">
-                                <div class="invalid-feedback" id="newrestaurant_address_error"></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="modal-footer">
