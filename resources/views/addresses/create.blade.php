@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
 	<div class="row mb-4">
 		<div class="col-12">
@@ -45,7 +44,7 @@
                         </div>
                         <div class="col-6 text-right">
                         	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    						<div id="map"></div>
+    						<div id="map" style="height: 500px"></div>
                         </div>
                     </div>
                 </div>
@@ -53,5 +52,7 @@
 		</div>
 	</div>
 </div>
-
 @endsection
+
+
+

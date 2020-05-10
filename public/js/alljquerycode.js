@@ -211,6 +211,8 @@ $('#createrestaurant-form').submit( function(e){
 });
 
 
+
+/*
 function initAutocomplete() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -33.8688, lng: 151.2195},
@@ -279,9 +281,10 @@ function initAutocomplete() {
 
             }
 
-            console.log(place.geometry.location);
+            console.log(place);
         });
 
         map.fitBounds(bounds);
     });
 }
+*/

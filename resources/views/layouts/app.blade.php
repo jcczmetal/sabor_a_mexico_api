@@ -99,10 +99,27 @@
     </div>
 </body>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoaxTrbmUSAh2mnUL4NeE7cfms2mgjI5g&libraries=places&callback=initAutocomplete" async defer></script>
+<script>
+/*
+function initMap() {
+    // The location of Uluru
+    var uluru = {lat: 19.4326, lng: -99.1332};
+    // The map, centered at Uluru
+    var map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 4, center: uluru});
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({position: uluru, map: map});
+}
+*/
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initAutocomplete" async defer></script>
+<script src="/js/mapInput.js"></script>
+
+
 
 <script type="text/javascript" src="/js/datatablesCode.js"></script>
 <script type="text/javascript" src="/js/alljquerycode.js"></script>
-
 
 </html>

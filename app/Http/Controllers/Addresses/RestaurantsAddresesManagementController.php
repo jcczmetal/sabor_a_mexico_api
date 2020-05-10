@@ -7,6 +7,7 @@ use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Builder;
+use App\Http\Requests\Addresses\AddressRegister;
 
 class RestaurantsAddresesManagementController extends Controller
 {
@@ -29,12 +30,12 @@ class RestaurantsAddresesManagementController extends Controller
 		return view('addresses.create',compact('restaurant'));
 	}
 
-	public function store(Request $request)
+	public function store(AddressRegister $request)
 	{
 
 	}
 
-	public function update(Request $request, $id)
+	public function update(AddressRegister $request, $id)
 	{
 
 	}
