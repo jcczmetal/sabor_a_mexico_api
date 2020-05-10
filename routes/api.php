@@ -27,7 +27,7 @@ Route::namespace('API')->group(function(){
 
 		// Se envía la posición para consultar las direcciones más cercanas... ¿Cómo?
 		//envío de coordenadas -> rango de cercanía ->
-		Route::post('restaurants/near-to',					'RestaurantsNearMeController');
+		Route::post('restaurants/near-to',					'RestaurantsNearToController');
 
 		// Sólo información básica de un restaurante
 		Route::get('restaurant/{id}/basic', 				'SingleRestaurantController');
