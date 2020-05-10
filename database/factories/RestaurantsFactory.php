@@ -6,10 +6,15 @@ use App\Models\Restaurant;
 use Faker\Generator as Faker;
 
 $factory->define(Restaurant::class, function (Faker $faker) {
+
+	$restaurantName = $faker->name;
+	$slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $restaurantName), '-'));
+	$website = 'www.'.$slug.'.com';
+
     return [
-        'name'      => $faker->name,
-        'slug'      => $faker->slug,
-        'website'   => $faker->url,
+        'name'      => $restaurantName,
+        'slug'      => $slug,
+        'website'   => $website,
         'phone'     => $faker->numerify($string = '##########'),
         'email'     => $faker->safeEmail,
         'active'    => 1

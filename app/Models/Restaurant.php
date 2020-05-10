@@ -9,9 +9,24 @@ class Restaurant extends Model
     protected $table = 'restaurants';
 
 	protected $fillable = ['name','website','slug','email','phone','active'];
-    //tiene fotografías
-    //tiene criticas
-    //pertenece
+
+    //Un restaurante puede tener muchas fotografías
+    public function photos()
+    {
+        return $this->hasMany('App\Models\Photo');
+    }
+
+    //Un restaurante puede tener muchas criticas
+    public function reviews()
+    {
+        return $this->hasMany('App\Models\Review');
+    }
+
+    //Un restaurante puede tener muchas direcciones
+    public function addresses()
+    {
+        return $this->hasMany('App\Models\Address');
+    }
 
 	/*
     public function setSlugAttribute($value)

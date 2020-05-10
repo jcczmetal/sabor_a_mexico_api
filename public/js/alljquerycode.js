@@ -196,7 +196,7 @@ $('#createrestaurant-form').submit( function(e){
             //Maneja una mensaje de que el restaurante fue guardado con éxito y que el usuario será redireccionado
 
             setTimeout(function(){
-                window.location.replace('/restaurants/'+ data +'/show');
+                window.location.replace('/restaurants/'+ data);
             },1000);
         },
 

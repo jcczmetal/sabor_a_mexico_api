@@ -4,9 +4,8 @@ namespace App\Http\Controllers\API\Eaters;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Restaurant;
 
-class RestaurantsController extends Controller
+class RestaurantsNearLocationController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -16,7 +15,6 @@ class RestaurantsController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //must have robust handle.
-        return Restaurant::all();
+        //
     }
 }
