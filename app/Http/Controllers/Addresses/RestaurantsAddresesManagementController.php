@@ -17,12 +17,16 @@ class RestaurantsAddresesManagementController extends Controller
                                        })
 							  ->get();
 
-		return view('addresses.index', compact('addresses'));
+		return view('addresses.index', compact('addresses','slug'));
 	}
 
-	public function create()
+	public function create($slug)
 	{
-		return view('addresses.create');
+		$restaurant = Restaurant::whereSlug($slug)
+							    ->select('id')
+							    ->first();
+
+		return view('addresses.create',compact('restaurant'));
 	}
 
 	public function store(Request $request)
@@ -37,6 +41,6 @@ class RestaurantsAddresesManagementController extends Controller
 
 	public function destroy($id)
 	{
-
+		//Soft delete que permita
 	}
 }

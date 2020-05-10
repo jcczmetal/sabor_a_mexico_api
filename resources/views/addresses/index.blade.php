@@ -13,7 +13,7 @@
                         </div>
 
                         <div class="col-4 text-right">
-                            <button type="button" class="btn btn-primary btn-sm" href="#">Registrar dirección</button>
+                            <a type="button" class="btn btn-primary btn-sm" href="{{ route('mg-create-address', $slug) }}">Registrar dirección</a>
                         </div>
                     </div>
                 </div>
