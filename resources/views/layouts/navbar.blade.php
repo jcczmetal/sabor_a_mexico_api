@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm p-2">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            Sabor a México | Demo
+        <a class="navbar-brand p-0" href="{{ url('/') }}">
+            <img src="{{ asset('logo.png') }}" height="40">
         </a>
-
+        <span class="badge badge-pill badge-light">Demo</span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>

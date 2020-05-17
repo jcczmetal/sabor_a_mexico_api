@@ -1,0 +1,110 @@
+/*
+#map {
+    height: 100%;
+}
+*/
+
+#description {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+#infowindow-content .title {
+    font-weight: bold;
+}
+
+#infowindow-content {
+    display: none;
+}
+
+#map #infowindow-content {
+    display: inline;
+}
+
+.pac-card {
+    margin: 10px 10px 0 0;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    font-family: Roboto;
+}
+
+#pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+  }
+
+.pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+#title {
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 6px 12px;
+}
+
+#target {
+  width: 345px;
+}
+
+/**
+  Custom colors
+**/
+.btn-primary{color:#fff;background-color:#D6016E;border-color:#a10053}
+
+.btn-primary:hover{color:#fff;background-color:#a10053;border-color:#a10053}
+.btn-primary:focus,.btn-primary.focus{background-color:#a10053;border-color: #a10053; box-shadow:0 0 0 .2rem rgba(106,0,54,0.5)}
+.btn-primary.disabled,.btn-primary:disabled{color:#fff;background-color:#D6016E;border-color:#a10053}
+.btn-primary:not(:disabled):not(.disabled):active,.btn-primary:not(:disabled):not(.disabled).active,.show>.btn-primary.dropdown-toggle{color:#fff;background-color:#fe6cb6;border-color:#000}
+.btn-primary:not(:disabled):not(.disabled):active:focus,.btn-primary:not(:disabled):not(.disabled).active:focus,.show>.btn-primary.dropdown-toggle:focus{box-shadow:0 0 0 .2rem rgba(106,0,54,0.5)}
+
+.btn-outline-primary{color:#D6016E;background-color:transparent;background-image:none;border-color:#D6016E}.btn-outline-primary:hover{color:#222;background-color:#fe6cb6;border-color:#D6016E}
+.btn-outline-primary:focus,.btn-outline-primary.focus{box-shadow:0 0 0 .2rem rgba(106,0,54,0.5)}
+.btn-outline-primary.disabled,.btn-outline-primary:disabled{color:#D6016E;background-color:transparent}
+.btn-outline-primary:not(:disabled):not(.disabled):active,.btn-outline-primary:not(:disabled):not(.disabled).active,.show>.btn-outline-primary.dropdown-toggle{color:#fff;background-color:#fe6cb6;border-color:#D6016E}
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus,.btn-outline-primary:not(:disabled):not(.disabled).active:focus,.show>.btn-outline-primary.dropdown-toggle:focus{box-shadow:0 0 0 .2rem rgba(106,0,54,0.5)}
+
+
+
+.btn-secondary{color:#fff;background-color:#0E1137;border-color:#07081b}
+
+.btn-secondary:hover{color:#fff;background-color:#07081b;border-color:#07081b}
+.btn-secondary:focus,.btn-secondary.focus{background-color:#07081b;border-color: #07081b; box-shadow:0 0 0 .2rem rgba(7,8,27,0.5)}
+.btn-secondary.disabled,.btn-secondary:disabled{color:#fff;background-color:#0E1137;border-color:#07081b}
+.btn-secondary:not(:disabled):not(.disabled):active,.btn-secondary:not(:disabled):not(.disabled).active,.show>.btn-secondary.dropdown-toggle{color:#fff;background-color:#161b5a;border-color:#000}
+.btn-secondary:not(:disabled):not(.disabled):active:focus,.btn-secondary:not(:disabled):not(.disabled).active:focus,.show>.btn-secondary.dropdown-toggle:focus{box-shadow:0 0 0 .2rem rgba(7,8,27,0.5)}
+
+.btn-outline-secondary{color:#0E1137;background-color:transparent;background-image:none;border-color:#0E1137}.btn-outline-secondary:hover{color:#222;background-color:#161b5a;border-color:#0E1137}
+.btn-outline-secondary:focus,.btn-outline-secondary.focus{box-shadow:0 0 0 .2rem rgba(7,8,27,0.5)}
+.btn-outline-secondary.disabled,.btn-outline-secondary:disabled{color:#0E1137;background-color:transparent}
+.btn-outline-secondary:not(:disabled):not(.disabled):active,.btn-outline-secondary:not(:disabled):not(.disabled).active,.show>.btn-outline-secondary.dropdown-toggle{color:#fff;background-color:#161b5a;border-color:#0E1137}
+.btn-outline-secondary:not(:disabled):not(.disabled):active:focus,.btn-outline-secondary:not(:disabled):not(.disabled).active:focus,.show>.btn-outline-secondary.dropdown-toggle:focus{box-shadow:0 0 0 .2rem rgba(7,8,27,0.5)}

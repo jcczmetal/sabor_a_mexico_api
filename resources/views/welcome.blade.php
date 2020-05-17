@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Sabor a México
+                    <img src="{{ asset('logo.png') }}"
                 </div>
             </div>
         </div>
