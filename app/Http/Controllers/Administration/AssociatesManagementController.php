@@ -13,6 +13,8 @@ class AssociatesManagementController extends Controller
     {
         $associates = User::role('associate')->get();
 
+
+
         return view('keymakers.associates.index',compact('associates'));
     }
 

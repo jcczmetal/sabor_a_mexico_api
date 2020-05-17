@@ -211,8 +211,6 @@ $('#createrestaurant-form').submit( function(e){
 });
 
 
-
-/*
 function initAutocomplete() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -33.8688, lng: 151.2195},
@@ -224,7 +222,7 @@ function initAutocomplete() {
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
 
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
     // Bias the SearchBox results towards current map's viewport.
     map.addListener('bounds_changed', function() {
@@ -287,4 +285,3 @@ function initAutocomplete() {
         map.fitBounds(bounds);
     });
 }
-*/

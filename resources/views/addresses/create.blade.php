@@ -40,10 +40,13 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-6 text-left">
-
+                        	<form>
+  								<div class="form-group">
+  									<input id="pac-input" class="form-control" type="text" placeholder="Search Box">
+  								</div>
+							</form>
                         </div>
                         <div class="col-6 text-right">
-                        	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
     						<div id="map" style="height: 500px"></div>
                         </div>
                     </div>
@@ -52,6 +55,11 @@
 		</div>
 	</div>
 </div>
+@endsection
+
+@section('customscripts')
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initAutocomplete" async defer>
+    </script>
 @endsection
 
 
