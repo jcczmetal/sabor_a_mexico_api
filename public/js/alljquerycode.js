@@ -213,13 +213,13 @@ $('#createrestaurant-form').submit( function(e){
 
 function initAutocomplete() {
     var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -33.8688, lng: 151.2195},
+        center: {lat: 19.370952, lng: -99.164937},
         zoom: 13,
         mapTypeId: 'roadmap'
     });
 
     // Create the search box and link it to the UI element.
-    var input = document.getElementById('pac-input');
+    var input = document.getElementById('addressComplete');
     var searchBox = new google.maps.places.SearchBox(input);
 
     //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
@@ -279,7 +279,19 @@ function initAutocomplete() {
 
             }
 
+            var number = place.address_components[0].long_name;
+
+            var street = place.address_components[1].long_name;
+
+            var sublocality = place.address_components[2].long_name; //colonia
+
+            var four = place.address_components[3].long_name; //Ciudad... estado, más bien.
+
+            var five = place.address_components[4]; //
+
             console.log(place);
+
+
         });
 
         map.fitBounds(bounds);
