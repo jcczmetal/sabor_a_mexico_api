@@ -76,24 +76,32 @@ function initAutocomplete() {
 function getGeoAddress(place) {
     var lat = place.geometry.location.lat();
     var lng = place.geometry.location.lng();
+    console.log(place);
 
-    var formattedAddress = place.formatted_address;
-    var addressChunk = formattedAddress.split(",");
+    //del objeto que arroja la API, convertimos el campo formatted_address en array.
+    var fullAddressArray = place.formatted_address.split(",");
 
-    //cada chunk debe analizarse si empieza con un número o con letra.
+    //validamos que sea number el primer char(con substr) del primer elemento de fullAddressArray.
+    var numbersPattern = /[0-9]/g;
+    var isNumber = fullAddressArray[0].substr(0,1).match(numbersPattern);
 
-    console.log(addressChunk.length);
+    var streetToArray;
 
-    //$('#number').val(number);
+    //si isNumber no es null, entonces fullAddressArray[0] trae zipcode en el primer elemento, por eso hay que recorrer
+    isNumber != null ? streetToArray = fullAddressArray[1].split(" ") : streetToArray = fullAddressArray[0].split(" ")
 
-    //var street = place.address_components[1].long_name;
-    //$('#street').val(street);
+    var streetOnly = ' ';
 
-    //var zipcode = place.address_components[6].long_name; //zipcode
-    //$('#zipcode').val(zipcode);
+    for (var total = 1; total <= (streetToArray.length - 2); total++) {
+        streetOnly = streetOnly.concat(' ',streetToArray[total]);
+    }
 
-    //var city = place.address_components[2].long_name; //Ciudad... estado, más bien.
-    //$('#city').val(city);
+    $('#street').val(streetOnly.trim());
 
-    //var five = place.address_components[4]; //
+    //var number = ;
+    $('#number').val(streetToArray[streetToArray.length - 1]);
+
+    $('#city').val(fullAddressArray[3]);
+
+    $('#state').val(fullAddressArray[5]);
 }
