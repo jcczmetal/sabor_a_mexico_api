@@ -56,7 +56,9 @@ class RestaurantsManagementController extends Controller
 
 	public function show($slug)
 	{
-		$restaurant = Restaurant::where('slug', $slug)->first();
+		$restaurant = Restaurant::withCount('addresses')
+								->where('slug', $slug)
+								->first();
 
 		return view('restaurants.show',compact('restaurant'));
 	}
