@@ -32,7 +32,6 @@
             	       <thead>
             	           <tr>
             	               <th>Restaurante</th>
-            	               <th>Teléfono</th>
             	               <th>Correo</th>
             	               <th>Acciones</th>
             	           </tr>
@@ -41,7 +40,6 @@
                 	    @foreach($restaurants as $restaurant)
                             <tr>
                                 <td>{{ $restaurant->name }}</td>
-                                <td>{{ $restaurant->phone }}</td>
                                 <td>{{ $restaurant->email }}</td>
                                 <td>
                                     <div class="dropdown">

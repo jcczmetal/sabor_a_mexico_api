@@ -18,7 +18,6 @@ class CreateRestaurantsTable extends Migration
             $table->string('name', 100);
             $table->string('slug', 100); //need some sort of logic to get this
             $table->string('website', 100);
-            $table->string('phone', 12);
             $table->string('email', 50);
             $table->boolean('active');
             $table->timestamps();

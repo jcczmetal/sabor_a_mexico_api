@@ -26,7 +26,6 @@ class CreateRestaurant extends FormRequest
         return [
             'newrestaurant_name'      => 'required',
             'newrestaurant_website'   => 'required',
-            'newrestaurant_phone'     => 'required',
             'newrestaurant_email'     => 'required'
         ];
     }
@@ -36,7 +35,6 @@ class CreateRestaurant extends FormRequest
         return [
             'newrestaurant_name.required'    => 'El nombre del restaurant es requerido.',
             'newrestaurant_website.required' => 'El sitio web del restaurante es requerido.',
-            'newrestaurant_phone.required'   => 'El teléfono es requerido.',
             'newrestaurant_email.required'   => 'El correo es requerido.'
         ];
     }

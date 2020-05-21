@@ -8,7 +8,7 @@ class Restaurant extends Model
 {
     protected $table = 'restaurants';
 
-	protected $fillable = ['name','website','slug','email','phone','active'];
+	protected $fillable = ['name','website','slug','email','active'];
 
     //Un restaurante puede tener muchas fotografías
     public function photos()

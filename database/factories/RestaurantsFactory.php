@@ -15,7 +15,6 @@ $factory->define(Restaurant::class, function (Faker $faker) {
         'name'      => $restaurantName,
         'slug'      => $slug,
         'website'   => $website,
-        'phone'     => $faker->numerify($string = '##########'),
         'email'     => $faker->safeEmail,
         'active'    => 1
     ];

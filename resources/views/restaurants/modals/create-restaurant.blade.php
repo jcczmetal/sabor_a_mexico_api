@@ -40,14 +40,6 @@
                                 <div class="invalid-feedback" id="newrestaurant_email_error"></div>
                             </div>
                         </div>
-
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label>Teléfono</label>
-                                <input type="number" name="newrestaurant_phone" id="newrestaurant_phone" class="form-control">
-                                <div class="invalid-feedback" id="newrestaurant_phone_error"></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
