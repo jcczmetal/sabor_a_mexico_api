@@ -51,7 +51,6 @@
                                 </div>
                             </div>
                             <br>
-                            <br>
                             <div class="row">
                                 <div class="col-12">
                                     <label>Verifica que los datos sean correctos y guarda la nueva sucursal.</label>
@@ -63,8 +62,17 @@
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <form>
+                                            <form id="createaddress-form">
+                                                @csrf
+
                                                 <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <input type="text" id="slug" name="slug" value="{{ $restaurant->slug }}" hidden>
+                                                            <input id="branch_name" name="branch_name" class="form-control" type="text" placeholder="Nombre de sucursal" readonly>
+                                                        </div>
+                                                    </div>
+
                                                     <div class="col-9">
                                                         <div class="form-group">
                                                             <input id="street" name="street" class="form-control" type="text" placeholder="Calle" readonly>
@@ -96,7 +104,7 @@
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <label>Por favor, añade el teléfono de la sucursal</label>
-                                                            <input id="phone" name="phone" class="form-control" type="text" placeholder="teléfono">
+                                                            <input id="phone" name="phone" class="form-control" type="text" placeholder="Teléfono">
                                                         </div>
                                                     </div>
                                                 </div>

@@ -24,7 +24,7 @@ class RestaurantsAddresesManagementController extends Controller
 	public function create($slug)
 	{
 		$restaurant = Restaurant::whereSlug($slug)
-							    ->select('id')
+							    ->select('id','slug')
 							    ->first();
 
 		return view('addresses.create',compact('restaurant'));

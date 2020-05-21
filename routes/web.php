@@ -25,7 +25,6 @@ Route::middleware(['auth','role:keymaker|admin|associate'])->namespace('Restaura
 });
 
 Route::middleware(['auth','role:keymaker|admin|associate'])->namespace('Addresses')->group(function(){
-
     Route::get('restaurants/{slug}/addresses',          'RestaurantsAddresesManagementController@index')->name('mg-index-address');
     Route::get('restaurants/{slug}/addresses/create',   'RestaurantsAddresesManagementController@create')->name('mg-create-address');
     Route::post('restaurants/{slug}/store',             'RestaurantsAddresesManagementController@store')->name('mg-store-address');

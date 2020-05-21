@@ -24,12 +24,11 @@ class AddressRegister extends FormRequest
     public function rules()
     {
         return [
-            'restaurant_id' => 'required',
-            'street'        => 'required',
-            'number'        => 'required',
-            'city'          => 'required',
-            'state'         => 'required',
-            'zipcode'       => 'required'
+            'slug'     => 'required',
+            'street'   => 'required',
+            'number'   => 'required',
+            'city'     => 'required',
+            'state'    => 'required',
         ];
     }
 }

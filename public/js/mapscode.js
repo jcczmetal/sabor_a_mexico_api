@@ -96,12 +96,40 @@ function getGeoAddress(place) {
         streetOnly = streetOnly.concat(' ',streetToArray[total]);
     }
 
+    $('#branch_name').val(place.name);
+
     $('#street').val(streetOnly.trim());
 
-    //var number = ;
     $('#number').val(streetToArray[streetToArray.length - 1]);
 
-    $('#city').val(fullAddressArray[3]);
+    $('#city').val(fullAddressArray[2]);
 
-    $('#state').val(fullAddressArray[5]);
+    $('#state').val(fullAddressArray[fullAddressArray.length - 1]);
 }
+
+$('#createaddress-form').submit( function(e){
+
+    e.preventDefault();
+
+    $.ajax({
+        type:"POST",
+        url:"/restaurants/"+ $('#slug').val() +"/store",
+        data: $('#createaddress-form').serialize(),
+        async: true,
+        dataType: 'json',
+
+        success: function(data){
+            setTimeout(function(){
+                window.location.replace('/restaurants/'+ $('#slug').val() +'/addresses');
+            },1000);
+        },
+
+        error: function(data){
+            const entries = Object.entries(data.responseJSON.errors);
+
+            for(const entry of entries){
+                handleErrorAndResponse(entry);
+            }
+        }
+    });
+});
