@@ -12,9 +12,11 @@ class Address extends Model
     	'restaurant_id',
     	'street',
     	'number',
-    	'zipcode',
+    	'phone',
     	'city',
-    	'state'
+    	'state',
+        'latitude',
+        'longitude'
     ];
 
     public function getCompleteAddressAttribute()

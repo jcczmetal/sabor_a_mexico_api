@@ -209,3 +209,30 @@ $('#createrestaurant-form').submit( function(e){
         }
     });
 });
+
+$('#createaddress-form').submit( function(e){
+
+    e.preventDefault();
+
+    $.ajax({
+        type:"POST",
+        url:"/restaurants/"+ $('#slug').val() +"/store",
+        data: $('#createaddress-form').serialize(),
+        async: true,
+        dataType: 'json',
+
+        success: function(data){
+            setTimeout(function(){
+                window.location.replace('/restaurants/'+ $('#slug').val() +'/addresses');
+            },1000);
+        },
+
+        error: function(data){
+            const entries = Object.entries(data.responseJSON.errors);
+
+            for(const entry of entries){
+                handleErrorAndResponse(entry);
+            }
+        }
+    });
+});

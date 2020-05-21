@@ -68,7 +68,9 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="form-group">
-                                                            <input type="text" id="slug" name="slug" value="{{ $restaurant->slug }}" hidden>
+                                                            <input type="text" id="slug" name="slug" value="{{ $slug }}" hidden>
+                                                            <input type="hidden" id="lat" name="lat" value="">
+                                                            <input type="hidden" id="lng" name="lng" value="">
                                                             <input id="branch_name" name="branch_name" class="form-control" type="text" placeholder="Nombre de sucursal" readonly>
                                                         </div>
                                                     </div>

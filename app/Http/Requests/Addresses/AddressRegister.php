@@ -24,11 +24,15 @@ class AddressRegister extends FormRequest
     public function rules()
     {
         return [
-            'slug'     => 'required',
-            'street'   => 'required',
-            'number'   => 'required',
-            'city'     => 'required',
-            'state'    => 'required',
+            'slug'        => 'required',
+            'branch_name' => 'required',
+            'street'      => 'required',
+            'number'      => 'required',
+            'city'        => 'required',
+            'state'       => 'required',
+            'lat'         => 'required',
+            'lng'         => 'required',
+            'phone'       => 'required'
         ];
     }
 }

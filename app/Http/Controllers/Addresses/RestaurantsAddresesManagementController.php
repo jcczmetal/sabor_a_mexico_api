@@ -23,16 +23,32 @@ class RestaurantsAddresesManagementController extends Controller
 
 	public function create($slug)
 	{
-		$restaurant = Restaurant::whereSlug($slug)
-							    ->select('id','slug')
-							    ->first();
-
-		return view('addresses.create',compact('restaurant'));
+		return view('addresses.create',compact('slug'));
 	}
 
 	public function store(AddressRegister $request)
 	{
+		$restaurant = Restaurant::whereSlug($request->slug)->select('id')->first();
 
+		if (!$restaurant) {
+			return "Error. Enviar respuesta JSON";
+		}
+
+		$newAddress = Address::create([
+			'restaurant_id' => $restaurant->id,
+			'street'		=> $request->street,
+			'phone'			=> $request->phone,
+			'number'		=> $request->number,
+			'city'			=> $request->city,
+			'state'         => $request->state,
+			'latitude'      => $request->lat,
+			'longitude'     => $request->lng
+		]);
+
+		return response()->json(
+            ['success'],
+            200
+        );
 	}
 
 	public function update(AddressRegister $request, $id)

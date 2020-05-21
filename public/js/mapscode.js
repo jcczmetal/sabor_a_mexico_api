@@ -76,7 +76,9 @@ function initAutocomplete() {
 function getGeoAddress(place) {
     var lat = place.geometry.location.lat();
     var lng = place.geometry.location.lng();
-    console.log(place);
+
+    $('#lat').val(lat);
+    $('#lng').val(lng);
 
     //del objeto que arroja la API, convertimos el campo formatted_address en array.
     var fullAddressArray = place.formatted_address.split(",");
@@ -107,29 +109,4 @@ function getGeoAddress(place) {
     $('#state').val(fullAddressArray[fullAddressArray.length - 1]);
 }
 
-$('#createaddress-form').submit( function(e){
 
-    e.preventDefault();
-
-    $.ajax({
-        type:"POST",
-        url:"/restaurants/"+ $('#slug').val() +"/store",
-        data: $('#createaddress-form').serialize(),
-        async: true,
-        dataType: 'json',
-
-        success: function(data){
-            setTimeout(function(){
-                window.location.replace('/restaurants/'+ $('#slug').val() +'/addresses');
-            },1000);
-        },
-
-        error: function(data){
-            const entries = Object.entries(data.responseJSON.errors);
-
-            for(const entry of entries){
-                handleErrorAndResponse(entry);
-            }
-        }
-    });
-});

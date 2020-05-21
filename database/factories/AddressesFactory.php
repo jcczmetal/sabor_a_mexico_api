@@ -11,6 +11,7 @@ $factory->define(Address::class, function (Faker $faker) {
 		'restaurant_id' => factory(Restaurant::class),
 		'street'		=> $faker->streetName,
 		'number'		=> $faker->numerify($string = '###'),
+		'phone'		    => $faker->numerify($string = '##########'),
 		'city'			=> 'Mérida',
 		'state'			=> 'Yucatán',
 		'latitude'		=> $faker->latitude($min = 20, $max = 21),
