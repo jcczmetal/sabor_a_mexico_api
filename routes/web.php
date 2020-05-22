@@ -28,6 +28,7 @@ Route::middleware(['auth','role:keymaker|admin|associate'])->namespace('Addresse
     Route::get('restaurants/{slug}/addresses',          'RestaurantsAddresesManagementController@index')->name('mg-index-address');
     Route::get('restaurants/{slug}/addresses/create',   'RestaurantsAddresesManagementController@create')->name('mg-create-address');
     Route::post('restaurants/{slug}/store',             'RestaurantsAddresesManagementController@store')->name('mg-store-address');
+    Route::get('address/{slug}',                        'RestaurantsAddresesManagementController@show')->name('mg-show-address');
     Route::put('address/{slug}/update',                 'RestaurantsAddresesManagementController@update')->name('mg-update-address');
     Route::put('address/{slug}/delete',                 'RestaurantsAddresesManagementController@destroy')->name('mg-destroy-address');
 });

@@ -9,6 +9,7 @@ use Faker\Generator as Faker;
 $factory->define(Address::class, function (Faker $faker) {
     return [
 		'restaurant_id' => factory(Restaurant::class),
+		'branch'   		=> $faker->name,
 		'street'		=> $faker->streetName,
 		'number'		=> $faker->numerify($string = '###'),
 		'phone'		    => $faker->numerify($string = '##########'),
