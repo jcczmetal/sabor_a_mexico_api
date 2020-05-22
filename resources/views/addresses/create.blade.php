@@ -105,7 +105,7 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="form-group">
-                                                            <label>Por favor, añade el teléfono de la sucursal</label>
+                                                            <label>Añade el teléfono de la sucursal</label>
                                                             <input id="phone" name="phone" class="form-control" type="text" placeholder="Teléfono">
                                                         </div>
                                                     </div>

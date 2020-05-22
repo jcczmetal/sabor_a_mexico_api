@@ -28,4 +28,16 @@ class Address extends Model
     {
         return $this->belongsTo('App\Models\Restaurant');
     }
+
+        //Un restaurante puede tener muchas fotografías
+    public function photos()
+    {
+        return $this->hasMany('App\Models\Photo');
+    }
+
+    //Un restaurante puede tener muchas criticas
+    public function reviews()
+    {
+        return $this->hasMany('App\Models\Review');
+    }
 }

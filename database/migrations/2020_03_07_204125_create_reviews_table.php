@@ -16,7 +16,7 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('restaurant_id');
+            $table->unsignedBigInteger('address_id');
             $table->text('review');
             $table->string('visit_type', 30);
             $table->smallInteger('ranking');
@@ -27,9 +27,9 @@ class CreateReviewsTable extends Migration
                   ->on('users')
                   ->onDelete('cascade');
 
-            $table->foreign('restaurant_id')
+            $table->foreign('address_id')
                   ->references('id')
-                  ->on('restaurants')
+                  ->on('addresses')
                   ->onDelete('cascade');
         });
     }

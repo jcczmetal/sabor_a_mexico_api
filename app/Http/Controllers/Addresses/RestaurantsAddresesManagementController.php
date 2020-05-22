@@ -26,6 +26,13 @@ class RestaurantsAddresesManagementController extends Controller
 		return view('addresses.create',compact('slug'));
 	}
 
+	public function show($id)
+	{
+		$addresses = Address::with('restaurant','reviews')->find($id);
+
+		return view('addresses.show', compact('addresses'));
+	}
+
 	public function store(AddressRegister $request)
 	{
 		$restaurant = Restaurant::whereSlug($request->slug)->select('id')->first();

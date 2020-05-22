@@ -10,9 +10,9 @@ class Review extends Model
 
     protected $fillable = ['user_id','restaurant_id','review','visit_type','ranking'];
 
-    public function restaurant()
+    public function address()
     {
-        $this->belongsTo('App\Models\Restaurant');
+        $this->belongsTo('App\Models\Address');
     }
 
     public function user()

@@ -11,8 +11,8 @@ class Photo extends Model
 	protected $fillable = ['address_id','title','comment'];
 
     //Un restaurante puede tener muchas fotografías
-    public function restaurant()
+    public function address()
     {
-        return $this->belongsTo('App\Models\Restaurant');
+        return $this->belongsTo('App\Models\address');
     }
 }

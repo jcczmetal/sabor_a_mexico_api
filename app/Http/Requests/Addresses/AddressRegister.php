@@ -25,7 +25,7 @@ class AddressRegister extends FormRequest
     {
         return [
             'slug'        => 'required',
-            'branch_name' => 'required',
+            'branch'      => 'required',
             'street'      => 'required',
             'number'      => 'required',
             'city'        => 'required',

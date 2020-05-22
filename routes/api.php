@@ -44,6 +44,9 @@ Route::namespace('API')->group(function(){
 		// Restaurante + dirección específica + fotografías + reviews -> la consulta va sobre la dirección
 		//Route::get('restaurant/address/{id}/profile',		'ShowPhotosAddressRestaurantController');
 
+		// Crear una review de una dirección de restaurante
+		Route::post('address/{id}/create-review',			'RestaurantPostReviewController');
+
 		// Roles y permisos ->
 		// Reviews -> Backend - User
 		// photos  -> Backend - User
