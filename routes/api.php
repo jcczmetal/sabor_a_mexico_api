@@ -47,6 +47,14 @@ Route::namespace('API')->group(function(){
 		// Crear una review de una dirección de restaurante
 		Route::post('address/{id}/create-review',			'RestaurantPostReviewController');
 
+		// Editar una review de una dirección de restaurante
+		//Route::patch('review/{id}/update-review',			'RestaurantUpdateReviewController');
+
+		//Eliminar una review
+		//Route::delete('review/{id}/delete',					'RestaurantDeleteReviewController');
+
+		//
+
 		// Roles y permisos ->
 		// Reviews -> Backend - User
 		// photos  -> Backend - User
