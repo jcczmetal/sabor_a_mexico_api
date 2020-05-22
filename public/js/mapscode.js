@@ -74,39 +74,39 @@ function initAutocomplete() {
 }
 
 function getGeoAddress(place) {
+    $('#branch').val('');
+    $('#street').val('');
+    $('#number').val('');
+    $('#city').val('');
+    $('#state').val('');
+
+    console.log(place.formatted_address);
+    console.log(place.address_components);
+
+    var addressObjects = place.address_components.filter(function(object){
+        if(object.types[0] == 'street_number' ||
+           object.types[0] == 'route' ||
+           object.types[0] == 'locality' ||
+           object.types[0] == 'administrative_area_level_1') {
+            return object;
+        }
+    }).map(element => element.long_name);
+
+    console.log(addressObjects);
+
+    $('#branch').val(place.name);
+
+    $('#number').val(addressObjects[0]);
+
+    $('#street').val(addressObjects[1]);
+
+    $('#city').val(addressObjects[2]);
+
+    $('#state').val(addressObjects[3]);
+
     var lat = place.geometry.location.lat();
-    var lng = place.geometry.location.lng();
-
     $('#lat').val(lat);
+
+    var lng = place.geometry.location.lng();
     $('#lng').val(lng);
-
-    //del objeto que arroja la API, convertimos el campo formatted_address en array.
-    var fullAddressArray = place.formatted_address.split(",");
-
-    //validamos que sea number el primer char(con substr) del primer elemento de fullAddressArray.
-    var numbersPattern = /[0-9]/g;
-    var isNumber = fullAddressArray[0].substr(0,1).match(numbersPattern);
-
-    var streetToArray;
-
-    //si isNumber no es null, entonces fullAddressArray[0] trae zipcode en el primer elemento, por eso hay que recorrer
-    isNumber != null ? streetToArray = fullAddressArray[1].split(" ") : streetToArray = fullAddressArray[0].split(" ")
-
-    var streetOnly = ' ';
-
-    for (var total = 1; total <= (streetToArray.length - 2); total++) {
-        streetOnly = streetOnly.concat(' ',streetToArray[total]);
-    }
-
-    $('#branch_name').val(place.name);
-
-    $('#street').val(streetOnly.trim());
-
-    $('#number').val(streetToArray[streetToArray.length - 1]);
-
-    $('#city').val(fullAddressArray[2]);
-
-    $('#state').val(fullAddressArray[fullAddressArray.length - 1]);
 }
-
-
