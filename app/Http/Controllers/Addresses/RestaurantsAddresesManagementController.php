@@ -13,10 +13,11 @@ class RestaurantsAddresesManagementController extends Controller
 {
 	public function index($slug)
 	{
-		$addresses = Address::whereHas('restaurant',function(Builder $query) use($slug){
+		$addresses = Address::with('restaurant')
+							->whereHas('restaurant',function(Builder $query) use($slug){
                                             $query->whereSlug($slug);
                                        })
-							  ->get();
+							->get();
 
 		return view('addresses.index', compact('addresses','slug'));
 	}
@@ -26,11 +27,15 @@ class RestaurantsAddresesManagementController extends Controller
 		return view('addresses.create',compact('slug'));
 	}
 
-	public function show($id)
+	public function show($slug)
 	{
-		$addresses = Address::with('restaurant','reviews')->find($id);
+		$address = Address::with('restaurant','reviews')
+							->whereSlug($slug)
+							->first();
 
-		return view('addresses.show', compact('addresses'));
+		$addressMediaItems = $address->getMedia();
+
+		return view('addresses.show', compact('address'));
 	}
 
 	public function store(AddressRegister $request)

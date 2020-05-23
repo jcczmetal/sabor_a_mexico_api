@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Associates;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Address;
 
 class LocalPhotoController extends Controller
 {
@@ -14,7 +15,9 @@ class LocalPhotoController extends Controller
 
     public function store(Request $request)
     {
-        //Validar archivo para almacenar. Posible necesidad de manejar cuantas fotos se pueden almacenar
+        $newPhoto = Address::whereSlug($request->slug)->first();
+
+        $newPhoto->addMedia($request->file)->toMediaCollection();
     }
 
     public function destroy($id)
