@@ -17,7 +17,7 @@ class LocalPhotoController extends Controller
     {
         $newPhoto = Address::whereSlug($request->slug)->first();
 
-        $newPhoto->addMedia($request->file)->toMediaCollection();
+        $newPhoto->addMedia($request->file)->toMediaCollection('images');
     }
 
     public function destroy($id)
