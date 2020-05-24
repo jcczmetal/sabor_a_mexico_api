@@ -22,8 +22,9 @@ class RestaurantsNearToController extends Controller
     {
         //https://dev.to/parthp1808/how-to-find-nearby-places-using-latitude-and-longitude-in-laravel-5-4iih
 
-        $addresses = Address::nearTo($request->latitude, $request->longitude)
-                         ->get();
+        $addresses = Address::with('restaurant')
+                            ->nearTo($request->latitude, $request->longitude)
+                            ->get();
 
         return $addresses->map(function($address){
             $urls = $address->getMedia('images')->map(function($item) {
