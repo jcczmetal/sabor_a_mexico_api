@@ -38,7 +38,7 @@ class RestaurantsManagementController extends Controller
         	'slug'		=> $slug,
 			'website'	=> $request->newrestaurant_website,
 			'email'		=> $request->newrestaurant_email,
-			'active'	=> false
+			'active'	=> true
         ]);
 
         /*
