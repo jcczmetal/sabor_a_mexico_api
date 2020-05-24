@@ -18,36 +18,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-header">
-                        Administradores inactivos
-                    </div>
-
-                    <div class="card-body">
-                        <h2 class="card-title">1</h2>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Registrar administrador
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-header">
-                        Something
-                    </div>
-
-                    <div class="card-body">
-                        <h2 class="card-title">7</h2>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Registrar administrador
-                        </button>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="row">

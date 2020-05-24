@@ -7,12 +7,12 @@
 			<div class="card text-center">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-8 text-left">
-                            Sucursal {{$address->branch }} del restaurante: {{ $address->restaurant->name }}
+                        <div class="col-6 text-left">
+                            Sucursal {{$address->branch }}
                         </div>
 
-                        <div class="col-4 text-right">
-                            <a type="button" class="btn btn-primary btn-sm" href="#">Something</a>
+                        <div class="col-6 text-right">
+                            Restaurante: <a href="{{ route('mg-index-address', $address->restaurant->slug) }}"> {{ $address->restaurant->name }}</a>
                         </div>
                     </div>
                 </div>
