@@ -29,8 +29,8 @@ Route::namespace('API')->group(function(){
 		//envío de coordenadas -> rango de cercanía ->
 		Route::post('restaurants/near-to',					'RestaurantsNearToController');
 
-		// Sólo información básica de un restaurante
-		Route::get('restaurant/{id}/basic', 				'SingleRestaurantController');
+		// Sólo información básica de un restaurante (Sucursal)
+		Route::get('branch/{id}/basic', 					'SingleRestaurantController');
 
 		// Restaurante + direcciones
 		Route::get('restaurant/{id}/addresses',				'RestaurantWithAddressController');
@@ -45,7 +45,7 @@ Route::namespace('API')->group(function(){
 		//Route::get('restaurant/address/{id}/profile',		'ShowPhotosAddressRestaurantController');
 
 		// Crear una review de una dirección de restaurante
-		Route::post('address/{id}/create-review',			'RestaurantPostReviewController');
+		//Route::post('address/{id}/create-review',			'RestaurantPostReviewController');
 
 		// Editar una review de una dirección de restaurante
 		//Route::patch('review/{id}/update-review',			'RestaurantUpdateReviewController');

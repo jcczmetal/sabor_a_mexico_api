@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API\Eaters;
 use App\Models\Restaurant;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Address;
+use Illuminate\Support\Arr;
 
 class SingleRestaurantController extends Controller
 {
@@ -16,8 +18,16 @@ class SingleRestaurantController extends Controller
      */
     public function __invoke($id)
     {
-        $restaurant = Restaurant::findOrFail($id);
+        $branch = Address::with('Restaurant')
+                         ->findOrFail($id);
 
-        return $restaurant;
+        $urls = $branch->getMedia('images')->map(function($item) {
+                    return [
+                        'thumb' => $item->getUrl('thumb-mobile'),
+                        'cover' => $item->getUrl('cover-mobile')
+                    ];
+                });
+
+        return Arr::add($branch, 'images', $urls);
     }
 }
