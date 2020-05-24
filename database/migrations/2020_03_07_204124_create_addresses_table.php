@@ -17,6 +17,7 @@ class CreateAddressesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('restaurant_id');
             $table->string('branch', 100);
+            $table->string('slug', 100);
             $table->string('street', 100);
             $table->unsignedInteger('number');
             $table->string('city', 100);

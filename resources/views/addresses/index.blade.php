@@ -32,10 +32,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8 text-left">
-                            Sucursal
+                            Sucursal: {{ $address->branch }}
                         </div>
                         <div class="col-4 text-right">
-                            <a type="button" class="btn btn-primary btn-sm" href="{{ route('mg-show-address', $address->id) }}">Ver</a>
+                            <a type="button" class="btn btn-primary btn-sm" href="{{ route('mg-show-address', $address->slug) }}">Ver</a>
                         </div>
                     </div>
                 </div>

@@ -3,13 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Address extends Model
+class Address extends Model implements HasMedia
 {
+    use InteractsWithMedia;
+
     protected $table = 'addresses';
 
     protected $fillable = [
     	'restaurant_id',
+        'branch',
+        'slug',
     	'street',
     	'number',
     	'phone',
