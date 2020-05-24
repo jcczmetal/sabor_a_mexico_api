@@ -49,6 +49,7 @@ class RestaurantsAddresesManagementController extends Controller
 		$newAddress = Address::create([
 			'restaurant_id' => $restaurant->id,
 			'branch'		=> $request->branch,
+			'slug'			=> $request->slug,
 			'street'		=> $request->street,
 			'phone'			=> $request->phone,
 			'number'		=> $request->number,
