@@ -24,38 +24,21 @@
 		</div>
 	</div>
 
-    <div class="row">
-        <div class="col-12">
-            <form class="dropzone" id="my-awesome-dropzone" enctype="multipart/form-data">
-                @csrf
-                <input type="hidden" name="slug" value="{{ $address->slug }}">
-            </form>
-        </div>
-    </div>
-
-    <div class="row">
+    <div class="row mb-4">
         <!-- carousel -->
         <div class="col-12">
-            @if($address->getMedia('images'))
+            @if($address->getMedia('images')->isNotEmpty())
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                    @foreach($address->getMedia('images') as $item => $slide)
+                        <li data-target="#carouselExampleCaptions" data-slide-to="{{ $item }}" class="{{ $item == 0 ? 'active' : '' }}"></li>
+                    @endforeach
                 </ol>
 
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </div>
-                    </div>
-
-                    @foreach($address->getMedia('images') as $item)
-                        <div class="carousel-item">
-                            <img src="{{ $item->getUrl() }}" class="d-block w-100">
+                    @foreach($address->getMedia('images') as $item => $slide)
+                        <div class="carousel-item {{$item == 0 ? 'active' : '' }}">
+                            <img src="{{ $slide->getUrl() }}">
 
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Second slide label</h5>
@@ -83,6 +66,15 @@
             @endif
         </div>
     </div>
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <form class="dropzone" id="my-awesome-dropzone" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="slug" value="{{ $address->slug }}">
+            </form>
+        </div>
+    </div>
 </div>
 @endsection
 
@@ -94,6 +86,17 @@
 </script>
 
 <script>
-    $("#my-awesome-dropzone").dropzone({ url: "/restaurant/photos/store" });
+    $("#my-awesome-dropzone").dropzone({
+
+        url: "/restaurant/photos/store",
+
+        success: function(data){
+            if (this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0) {
+                location.reload();
+            }
+        },
+    });
+
+
 </script>
 @endsection

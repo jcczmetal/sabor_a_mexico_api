@@ -33,10 +33,6 @@ class RestaurantsAddresesManagementController extends Controller
 							->whereSlug($slug)
 							->first();
 
-		$addressMediaItems = $address->getMedia();
-
-		//return $address;
-
 		return view('addresses.show', compact('address'));
 	}
 
