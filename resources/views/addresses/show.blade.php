@@ -36,7 +36,7 @@
     <div class="row">
         <!-- carousel -->
         <div class="col-12">
-            @if($address->getMedia())
+            @if($address->getMedia('images'))
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -53,7 +53,7 @@
                         </div>
                     </div>
 
-                    @foreach($address->getMedia() as $item)
+                    @foreach($address->getMedia('images') as $item)
                         <div class="carousel-item">
                             <img src="{{ $item->getUrl() }}" class="d-block w-100">
 
