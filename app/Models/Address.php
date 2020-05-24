@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Support\Facades\DB;
 
 class Address extends Model implements HasMedia
 {
@@ -45,5 +46,23 @@ class Address extends Model implements HasMedia
     public function reviews()
     {
         return $this->hasMany('App\Models\Review');
+    }
+
+    public function scopeNearTo($query, $lat, $lng)
+    {
+        $query->select(DB::raw('*, ( 6367 * acos( cos( radians('.$lat.') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians('.$lng.') ) + sin( radians('.$lat.') ) * sin( radians( latitude ) ) ) ) AS distance'))
+            ->having('distance', '<', 25)
+            ->orderBy('distance');
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumb-mobile')
+              ->width(150)
+              ->height(150);
+
+        $this->addMediaConversion('cover-mobile')
+              ->width(800)
+              ->height(600);
     }
 }
