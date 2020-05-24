@@ -35,6 +35,8 @@ class RestaurantsAddresesManagementController extends Controller
 
 		$addressMediaItems = $address->getMedia();
 
+		//return $address;
+
 		return view('addresses.show', compact('address'));
 	}
 
@@ -46,10 +48,12 @@ class RestaurantsAddresesManagementController extends Controller
 			return "Error. Enviar respuesta JSON";
 		}
 
+		$slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->branch), '-')) . rand(1000,9999);
+
 		$newAddress = Address::create([
 			'restaurant_id' => $restaurant->id,
 			'branch'		=> $request->branch,
-			'slug'			=> $request->slug,
+			'slug'			=> $slug,
 			'street'		=> $request->street,
 			'phone'			=> $request->phone,
 			'number'		=> $request->number,
