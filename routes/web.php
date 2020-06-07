@@ -7,7 +7,6 @@ Auth::routes();
 Route::middleware(['auth','role:keymaker'])->namespace('Keymakers')->group(function(){
     //A este grupo de rutas solo es accesible para un keymaker...
     //Que en todo caso, serían los administradores del sistema y posiblemente un keymaker usuario.
-
     Route::get('keymakers/dashboard',                   'KeymakersDashboardController@index')->name('keymasters-dashboard');
     Route::get('administrators/index',                  'AdministratorsManagementController@index')->name('index-administrators');
     Route::post('administrators/store',                 'AdministratorsManagementController@store')->name('store-administrators');
