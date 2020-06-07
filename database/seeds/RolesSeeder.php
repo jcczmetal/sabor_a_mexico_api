@@ -12,9 +12,11 @@ class RolesSeeder extends Seeder
      */
     public function run()
     {
+
 		Role::create(['name' => 'keymaker']);
 		Role::create(['name' => 'admin']);
 		Role::create(['name' => 'associate']);
 		Role::create(['name' => 'eater']);
+
     }
 }
