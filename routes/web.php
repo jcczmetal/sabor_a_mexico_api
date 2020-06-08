@@ -2,8 +2,9 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Auth::routes();
+//Auth::routes();
 
+/*
 Route::middleware(['auth','role:keymaker'])->namespace('Keymakers')->group(function(){
     //A este grupo de rutas solo es accesible para un keymaker...
     //Que en todo caso, serían los administradores del sistema y posiblemente un keymaker usuario.
@@ -56,3 +57,4 @@ Route::middleware(['auth','role:associate|admin|keymaker'])->namespace('Associat
     Route::put('restaurante/review/{id}/update',     'LocalReviewsManagementController@update')->name('update-restaurant-review');
     Route::put('restaurante/review/{id}/delete',     'LocalReviewsManagementController@destroy')->name('delete-restaurant-review');
 });
+*/

@@ -1,23 +1,31 @@
 <?php
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+Route::post('sanctum/token', function (Request $request) {
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+        'device_name' => 'required'
+    ]);
 
-Route::get('/user', function (Request $request) {
-    return "hello";
+    $user = User::where('email', $request->email)->first();
+
+    if (! $user || ! Hash::check($request->password, $user->password)) {
+        throw ValidationException::withMessages([
+            'email' => ['The provided credentials are incorrect.'],
+        ]);
+    }
+
+    return $user->createToken($request->device_name)->plainTextToken;
 });
 
-Route::namespace('API')->group(function(){
+
+
+Route::middleware('auth:sanctum')->namespace('API')->group(function(){
 	Route::namespace('Eaters')->group(function(){
 		// Sólo información básica de todos los restaurantes debe ir paginado.
 		Route::get('restaurants', 							'RestaurantsController');
@@ -62,8 +70,11 @@ Route::namespace('API')->group(function(){
 
 		// DEMO delimitar + documentación
 			// Arquitectura + Infraestructura (demanda[''] -> 100k requests)
+	});
 
-
+	//middleware(['role:keymaker'])->
+	Route::namespace('Keymakers')->group(function(){
+		Route::get('keymakers/dashboard', 'KeymakersDashboardController');
 	});
 });
 
