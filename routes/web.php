@@ -53,6 +53,7 @@ Route::middleware(['auth','role:associate|admin|keymaker'])->namespace('Associat
     Route::put('restaurant/photo/{id}/delete',       'LocalPhotoController@destroy')->name('delete-restaurant-photo');
 
 	//Gestión de reviews por parte del restaurante
+    // FALTA ESTO
     Route::get('restaurante/{slug}/reviews',         'LocalReviewsManagementController@index')->name('index-restaurant-reviews');
     Route::put('restaurante/review/{id}/update',     'LocalReviewsManagementController@update')->name('update-restaurant-review');
     Route::put('restaurante/review/{id}/delete',     'LocalReviewsManagementController@destroy')->name('delete-restaurant-review');

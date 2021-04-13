@@ -3,14 +3,41 @@
 use Illuminate\Http\Request;
 
 /*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
+    - WEBAPP -> Alv android . iOS
+    - Restful API
+
+    -> subdominio . fondaswebapp.sistemasramirez.com ->
+                    fondasapi.sistemasramirez.com
+
+========================================================= Infra y arquitectura
+
+- Revisar tema de wireframes y checar lo que es más fácil: web vs app movil
+
+- JWT -> Cookies
+
+- Analytics para ver de donde entran y que tanto tráfico hay.
+
+    -> FOTOS: ver tamaños necesarios ->
+
+
+    -> Comensales
+        -> Recibir restaurantes cercanos -> el calculo que ya tenemos de cercanía
+        -> Poder ver un restaurante -> fotos, menú, contacto
+
+    -> Restaurantes
+        -> Que se registren -> crear un perfil de restaurantero (datos de contacto entre ellos y nosotros y comensales)
+                            -> subir fotos del restaurante (hasta 3)
+                            -> configuren lo básico del restaurante
+                            -> crear sucursal (ubicación)
+                            -> menu (por el momento el menú completo uno solo) (solo texto) *
+                                -> platillos? (items del menú) nombre, descripción, precio, tipo, foto.
+
+    -> Administradores
+        -> Validar las solicitudes de registro de restaurantes
+        -> Moderar las fotos (poder eliminar fotos manualmente)
+
+
+    ->
 */
 
 Route::get('/user', function (Request $request) {
